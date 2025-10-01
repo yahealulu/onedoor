@@ -119,8 +119,6 @@ const HeroSection = () => {
             <source src="/assets/main.mp4" type="video/mp4" />
           </video>
 
-          <div className="absolute inset-0 bg-background/30" />
-
           <div className="relative z-10 pb-12 flex flex-col items-center space-y-4">
             <p className="text-foreground/80 text-lg font-light tracking-wide">
               Scroll to explore
