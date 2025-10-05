@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Eye, ZoomIn } from 'lucide-react';
 import mainjpg from "../assets/projects/ddos/main.jpg";
 import loginjpg from "../assets/projects/ddos/LOG IN@3x.png";
 import reelsjpg from "../assets/projects/ddos/Reels.png";
@@ -16,7 +16,8 @@ const ProjectDetailsPage = () => {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const { language } = useLanguage();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Project data with detailed structure
   const projects = [
@@ -251,30 +252,30 @@ const ProjectDetailsPage = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        navigate('/#projects');
-      } else if (e.key === 'ArrowLeft') {
-        navigateImage('prev');
-      } else if (e.key === 'ArrowRight') {
-        navigateImage('next');
+        if (isModalOpen) {
+          closeImageModal();
+        } else {
+          navigate('/#projects');
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentImageIndex]);
+  }, [isModalOpen]);
 
-  const navigateImage = (direction: 'prev' | 'next') => {
-    if (!project) return;
-    
-    if (direction === 'prev') {
-      setCurrentImageIndex(prev => 
-        prev === 0 ? project.images.length - 1 : prev - 1
-      );
-    } else {
-      setCurrentImageIndex(prev => 
-        prev === project.images.length - 1 ? 0 : prev + 1
-      );
-    }
+  const openImageModal = (image: string) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeImageModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+    setTimeout(() => {
+      setSelectedImage(null);
+    }, 300);
   };
 
   if (!project) {
@@ -321,218 +322,294 @@ const ProjectDetailsPage = () => {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Image Gallery - Desktop */}
-            <div className="lg:w-7/12">
-              <div className="relative bg-secondary/10 rounded-xl overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentImageIndex}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    src={project.images[currentImageIndex]}
-                    alt={`${language === 'ar' ? project.title.ar : language === 'tr' ? project.title.tr : project.title.en} - Image ${currentImageIndex + 1}`}
-                    className="w-full h-96 md:h-[500px] object-contain"
-                  />
-                </AnimatePresence>
-                
-                {/* Navigation Arrows */}
-                <button
-                  onClick={() => navigateImage('prev')}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                
-                <button
-                  onClick={() => navigateImage('next')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-                
-                {/* Image Indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {project.images.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                        idx === currentImageIndex ? 'bg-primary w-6' : 'bg-white/50'
-                      }`}
-                    />
-                  ))}
-                </div>
+          {/* Project Details Sections */}
+          <div className="space-y-12">
+            {/* Introduction */}
+            <div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
+                {language === 'ar' ? 'مقدمة' : language === 'tr' ? 'Giriş' : 'Introduction'}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                {language === 'ar' ? project.introduction.ar : language === 'tr' ? project.introduction.tr : project.introduction.en}
+              </p>
+            </div>
+            
+            {/* Objectives */}
+            <div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
+                {language === 'ar' ? 'أهداف التطبيق' : language === 'tr' ? 'Uygulama Hedefleri' : 'Application Objectives'}
+              </h2>
+              <ul className="space-y-3">
+                {(language === 'ar' ? project.objectives.ar : language === 'tr' ? project.objectives.tr : project.objectives.en).map((objective, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                    <span className="text-muted-foreground text-lg">{objective}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Image Gallery */}
+            <div>
+              <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
+                {language === 'ar' ? 'معرض الصور' : language === 'tr' ? 'Görsel Galerisi' : 'Image Gallery'}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {project.images.map((image, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="group relative overflow-hidden rounded-xl cursor-pointer bg-secondary/20 border border-border hover:border-primary/30 transition-all duration-300"
+                    onClick={() => openImageModal(image)}
+                  >
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        src={image}
+                        alt={`${language === 'ar' ? project.title.ar : language === 'tr' ? project.title.tr : project.title.en} - Image ${idx + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="bg-primary/80 backdrop-blur-sm rounded-full p-3 flex items-center gap-2">
+                        <ZoomIn className="w-5 h-5 text-white" />
+                        <span className="text-white font-medium text-sm">
+                          {language === 'ar' ? 'عرض' : language === 'tr' ? 'Görüntüle' : 'View'}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
             
-            {/* Project Details */}
-            <div className="lg:w-5/12 overflow-y-auto max-h-[600px]">
-              <div className="space-y-6">
-                {/* Introduction */}
-                <div>
-                  <h2 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    {language === 'ar' ? 'مقدمة' : language === 'tr' ? 'Giriş' : 'Introduction'}
-                  </h2>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {language === 'ar' ? project.introduction.ar : language === 'tr' ? project.introduction.tr : project.introduction.en}
-                  </p>
-                </div>
-                
-                {/* Objectives */}
-                <div>
-                  <h2 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    {language === 'ar' ? 'أهداف التطبيق' : language === 'tr' ? 'Uygulama Hedefleri' : 'Application Objectives'}
-                  </h2>
-                  <ul className="space-y-2">
-                    {(language === 'ar' ? project.objectives.ar : language === 'tr' ? project.objectives.tr : project.objectives.en).map((objective, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
-                        <span className="text-muted-foreground">{objective}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Additional Sections - Full Width */}
-          <div className="mt-12 space-y-8">
             {/* User Features */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'خصائص المستخدمين' : language === 'tr' ? 'Kullanıcı Özellikleri' : 'User Features'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.userFeatures.ar : language === 'tr' ? project.userFeatures.tr : project.userFeatures.en).map((feature, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
             {/* Dealer Features */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'محتويات صفحة بائع التطبيق Dealer' : language === 'tr' ? 'Bayi Uygulama Sayfası İçeriği' : 'Dealer Application Page Contents'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.dealerFeatures.ar : language === 'tr' ? project.dealerFeatures.tr : project.dealerFeatures.en).map((feature, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
             {/* Buyer Features */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'خصائص المستخدمين (المشترين)' : language === 'tr' ? 'Alıcı Özellikleri' : 'Buyer Features'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.buyerFeatures.ar : language === 'tr' ? project.buyerFeatures.tr : project.buyerFeatures.en).map((feature, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
             {/* Additions */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'الإضافات' : language === 'tr' ? 'Eklemeler' : 'Additions'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.additions.ar : language === 'tr' ? project.additions.tr : project.additions.en).map((addition, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{addition}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
             {/* Main Features */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'أهم المميزات' : language === 'tr' ? 'Ana Özellikler' : 'Main Features'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.mainFeatures.ar : language === 'tr' ? project.mainFeatures.tr : project.mainFeatures.en).map((feature, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
             {/* Reels Features */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'الميزات الخاصة بالسيارات Reels' : language === 'tr' ? 'Reels Araç Özellikleri' : 'Reels Car Features'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.reelsFeatures.ar : language === 'tr' ? project.reelsFeatures.tr : project.reelsFeatures.en).map((feature, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
             {/* User Specific Features */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'الميزات الخاصة بالمستخدمين' : language === 'tr' ? 'Kullanıcıya Özel Özellikler' : 'User Specific Features'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.userSpecificFeatures.ar : language === 'tr' ? project.userSpecificFeatures.tr : project.userSpecificFeatures.en).map((feature, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
             {/* General Features */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+                <div className="w-3 h-3 bg-primary rounded-full"></div>
                 {language === 'ar' ? 'الخصائص العامة' : language === 'tr' ? 'Genel Özellikler' : 'General Features'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(language === 'ar' ? project.generalFeatures.ar : language === 'tr' ? project.generalFeatures.tr : project.generalFeatures.en).map((feature, idx) => (
-                  <div key={idx} className="flex items-start p-3 bg-secondary/30 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 mr-3 flex-shrink-0"></div>
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex items-start p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {isModalOpen && selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-background/90 backdrop-blur-lg flex items-center justify-center p-4"
+            onClick={closeImageModal}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-6xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeImageModal}
+                className="absolute top-4 right-4 z-20 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300 shadow-lg"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              
+              {/* Image */}
+              <div className="relative bg-secondary/10 rounded-xl overflow-hidden">
+                <img
+                  src={selectedImage}
+                  alt="Enlarged view"
+                  className="w-full h-full max-h-[80vh] object-contain"
+                />
+              </div>
+              
+              {/* Image Info */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur-sm rounded-full px-4 py-2 text-sm text-foreground">
+                {language === 'ar' ? 'انقر في أي مكان لإغلاق' : language === 'tr' ? 'Kapatmak için herhangi bir yere tıklayın' : 'Click anywhere to close'}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
