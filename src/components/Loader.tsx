@@ -42,7 +42,7 @@ const Loader = ({ onComplete }: LoaderProps) => {
         <div className="flex flex-col items-center justify-center w-full h-full bg-background">
           {/* Logo */}
           <div className="mb-12 animate-fade-in">
-            <h1 className="text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-glow">
+            <h1 className="text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-glow" style={{ lineHeight: '1.4' }}>
               one<span className="text-foreground">door</span>
             </h1>
           </div>

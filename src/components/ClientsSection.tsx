@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import nouraPortrait from '../assets/noura-portrait.jpg';
 import ahmedPortrait from '../assets/ahmed-portrait.jpg';
 import sarahPortrait from '../assets/sarah-portrait.jpg';
 import abdulrahmanPortrait from '../assets/abdulrahman-portrait.jpg';
 
 const ClientsSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -63,11 +65,11 @@ const ClientsSection = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-8 reveal">
-            Our Clients
+          <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-8 reveal" style={{ lineHeight: '1.4' }}>
+            {t('clients.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto reveal">
-            Trusted by professionals who value excellence and innovation
+            {t('clients.subtitle')}
           </p>
         </div>
 

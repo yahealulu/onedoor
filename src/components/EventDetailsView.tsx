@@ -69,7 +69,7 @@ const EventDetailsView: React.FC<EventDetailsViewProps> = ({ event, onClose, isO
 
           <div className="container mx-auto px-4 py-8">
             <div className="glass p-8 rounded-2xl max-w-4xl mx-auto">
-              <h1 className="text-3xl font-bold text-gradient mb-4">
+              <h1 className="text-3xl font-bold text-gradient mb-4" style={{ lineHeight: '1.4' }}>
                 Event Details
               </h1>
               <p className="text-muted-foreground">
@@ -108,7 +108,7 @@ const EventDetailsView: React.FC<EventDetailsViewProps> = ({ event, onClose, isO
             <div className="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-full mb-6 mx-auto">
               <IconComponent className="w-10 h-10 text-primary-foreground" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gradient mb-4" style={{ lineHeight: '1.4' }}>
               {event.title}
             </h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-muted-foreground">

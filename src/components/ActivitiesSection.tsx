@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Calendar, MapPin, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,6 +8,7 @@ import { timelineData } from '../data/timelineData';
 
 
 const ActivitiesSection = () => {
+  const { language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -42,12 +44,15 @@ const ActivitiesSection = () => {
     <section ref={sectionRef} id="activities" className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 reveal">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
-            Our Activities
+          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6" style={{ lineHeight: '1.4' }}>
+            {language === 'en' ? 'Our Activities' : language === 'tr' ? 'Aktivitelerimiz' : 'أنشطتنا'}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover our journey through major exhibitions and strategic partnerships, 
-            showcasing One Door's commitment to digital transformation and innovation.
+            {language === 'en' 
+              ? 'Discover our journey through major exhibitions and strategic partnerships, showcasing One Door\'s commitment to digital transformation and innovation.' 
+              : language === 'tr' 
+              ? 'One Door\'un dijital dönüşüme ve inovasyona olan bağlılığını sergileyen büyük fuarlar ve stratejik ortaklıklar yoluyla yolculuğumuzu keşfedin.'
+              : 'اكتشف رحلتنا من خلال المعارض الكبرى والشراكات الاستراتيجية، والتي تُظهر التزام One Door بالتحول الرقمي والابتكار.'}
           </p>
         </div>
 
@@ -92,24 +97,24 @@ const ActivitiesSection = () => {
                   <div className={`flex-1 min-w-0 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
                     <div className="flex items-center gap-2 mb-4 text-primary">
                       <Calendar className="w-5 h-5" />
-                      <span className="text-sm font-medium">{item.date}</span>
+                      <span className="text-sm font-medium">{language === 'en' ? item.date.en : language === 'tr' ? item.date.tr : item.date.ar}</span>
                     </div>
                     
                     {item.location && (
                       <div className="flex items-center gap-2 mb-6 text-muted-foreground">
                         <MapPin className="w-4 h-4" />
-                        <span className="text-sm">{item.location}</span>
+                        <span className="text-sm">{language === 'en' ? item.location.en : language === 'tr' ? item.location.tr : item.location.ar}</span>
                       </div>
                     )}
 
                     <h3 className={`text-2xl lg:text-3xl font-bold mb-6 ${
                       item.type === 'exhibition' ? 'text-gradient' : 'text-foreground'
-                    }`}>
-                      {item.title}
+                    }`} style={{ lineHeight: '1.4' }}>
+                      {language === 'en' ? item.title.en : language === 'tr' ? item.title.tr : item.title.ar}
                     </h3>
 
                     <div className="prose prose-invert max-w-none">
-                      {item.content.split('\n\n').map((paragraph, idx) => (
+                      {(language === 'en' ? item.content.en : language === 'tr' ? item.content.tr : item.content.ar).split('\n\n').map((paragraph, idx) => (
                         <p key={idx} className="text-muted-foreground leading-relaxed mb-4 last:mb-0 text-base">
                           {paragraph}
                         </p>
@@ -127,7 +132,7 @@ const ActivitiesSection = () => {
                         >
                           <img
                             src={image}
-                            alt={`${item.title} - Image ${imgIndex + 1}`}
+                            alt={`${language === 'en' ? item.title.en : language === 'tr' ? item.title.tr : item.title.ar} - Image ${imgIndex + 1}`}
                             className="w-full h-24 lg:h-32 object-cover rounded-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg"
                           />
                           {/* Overlay */}

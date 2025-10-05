@@ -76,7 +76,8 @@
   }
 
   html {
-    scroll-beavior: smooth;
+    scroll-behavior: smooth;
+    direction: ltr; /* Keep direction static */
   }
 }
 
@@ -156,6 +157,8 @@
   /* Premium Text Styles */
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+    line-height: 1.4; /* Fix for Arabic text clipping */
+    padding-bottom: 0.1em; /* Additional padding to prevent clipping */
   }
 
   .text-glow {
@@ -165,6 +168,8 @@
   /* Counter Animation */
   .counter {
     @apply text-4xl md:text-5xl font-bold text-gradient;
+    line-height: 1.4; /* Fix for Arabic text clipping */
+    padding-bottom: 0.1em; /* Additional padding to prevent clipping */
   }
 
   /* Shadow utilities */
@@ -326,4 +331,21 @@
 /* Progress bar animation */
 .progress-bar {
   transition: width 0.2s ease-out;
+}
+
+/* Arabic font support */
+.arabic-font {
+  font-family: 'Tajawal', 'Segoe UI', sans-serif;
+  line-height: 1.6; /* Better line height for Arabic text */
+  padding-bottom: 0.1em; /* Additional padding to prevent clipping */
+}
+
+/* Turkish font support */
+.turkish-font {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* English font support */
+.english-font {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }

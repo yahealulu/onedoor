@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const AchievementsSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const [counts, setCounts] = useState({
     years: 0,
@@ -10,10 +12,10 @@ const AchievementsSection = () => {
   });
 
   const achievements = [
-    { key: 'years', value: 7, suffix: '+', label: 'Years of Experience' },
-    { key: 'clients', value: 120, suffix: '+', label: 'Satisfied Clients' },
-    { key: 'projects', value: 50, suffix: '+', label: 'Projects Delivered' },
-    { key: 'downloads', value: 10, suffix: 'M+', label: 'Downloads' }
+    { key: 'years', value: 7, suffix: '+', label: t('achievements.years') },
+    { key: 'clients', value: 120, suffix: '+', label: t('achievements.clients') },
+    { key: 'projects', value: 50, suffix: '+', label: t('achievements.projects') },
+    { key: 'downloads', value: 10, suffix: 'M+', label: t('achievements.downloads') }
   ];
 
   useEffect(() => {
@@ -67,11 +69,11 @@ const AchievementsSection = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-8 reveal">
-            Our Proud Achievements
+          <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-8 reveal" style={{ lineHeight: '1.4' }}>
+            {t('achievements.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto reveal">
-            Numbers that speak to our commitment to excellence and innovation
+            {t('achievements.subtitle')}
           </p>
         </div>
 

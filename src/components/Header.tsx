@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Header = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -18,6 +20,11 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleLanguageChange = (lang: 'en' | 'ar' | 'tr') => {
+    setLanguage(lang);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -46,36 +53,104 @@ const Header = () => {
               onClick={() => scrollToSection('services')}
               className="btn-ghost"
             >
-              Services
+              {t('nav.services')}
             </button>
             <button 
               onClick={() => scrollToSection('clients')}
               className="btn-ghost"
             >
-              Our Clients
+              {t('nav.clients')}
             </button>
             <button 
               onClick={() => scrollToSection('achievements')}
               className="btn-ghost"
             >
-              Achievements
+              {t('nav.achievements')}
             </button>
             <button 
               onClick={() => scrollToSection('activities')}
               className="btn-ghost"
             >
-              Activities
+              {t('nav.activities')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="btn-outline"
             >
-              Contact Us
+              {t('nav.contact')}
             </button>
+            
+            {/* Language Switcher */}
+            <div className="flex space-x-2">
+              <button 
+                onClick={() => handleLanguageChange('en')}
+                className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
+                  language === 'en' 
+                    ? 'bg-primary text-white' 
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
+              >
+                EN
+              </button>
+              <button 
+                onClick={() => handleLanguageChange('ar')}
+                className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
+                  language === 'ar' 
+                    ? 'bg-primary text-white' 
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
+              >
+                AR
+              </button>
+              <button 
+                onClick={() => handleLanguageChange('tr')}
+                className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
+                  language === 'tr' 
+                    ? 'bg-primary text-white' 
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
+              >
+                TR
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Language Switcher for Mobile */}
+            <div className="flex space-x-1">
+              <button 
+                onClick={() => handleLanguageChange('en')}
+                className={`px-2 py-1 rounded text-xs font-medium transition-all ${
+                  language === 'en' 
+                    ? 'bg-primary text-white' 
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
+              >
+                EN
+              </button>
+              <button 
+                onClick={() => handleLanguageChange('ar')}
+                className={`px-2 py-1 rounded text-xs font-medium transition-all ${
+                  language === 'ar' 
+                    ? 'bg-primary text-white' 
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
+              >
+                AR
+              </button>
+              <button 
+                onClick={() => handleLanguageChange('tr')}
+                className={`px-2 py-1 rounded text-xs font-medium transition-all ${
+                  language === 'tr' 
+                    ? 'bg-primary text-white' 
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
+              >
+                TR
+              </button>
+            </div>
+            
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="btn-ghost"
@@ -94,31 +169,31 @@ const Header = () => {
               onClick={() => { scrollToSection('services'); setIsMobileMenuOpen(false); }}
               className="block w-full text-left btn-ghost"
             >
-              Services
+              {t('nav.services')}
             </button>
             <button 
               onClick={() => { scrollToSection('clients'); setIsMobileMenuOpen(false); }}
               className="block w-full text-left btn-ghost"
             >
-              Our Clients
+              {t('nav.clients')}
             </button>
             <button 
               onClick={() => { scrollToSection('achievements'); setIsMobileMenuOpen(false); }}
               className="block w-full text-left btn-ghost"
             >
-              Achievements
+              {t('nav.achievements')}
             </button>
             <button 
               onClick={() => { scrollToSection('activities'); setIsMobileMenuOpen(false); }}
               className="block w-full text-left btn-ghost"
             >
-              Activities
+              {t('nav.activities')}
             </button>
             <button 
               onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }}
               className="block w-full text-left btn-outline"
             >
-              Contact Us
+              {t('nav.contact')}
             </button>
           </div>
         </div>

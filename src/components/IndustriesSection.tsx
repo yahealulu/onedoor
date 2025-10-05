@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const IndustriesSection = () => {
+  const { t } = useLanguage();
   const [displayedIndustries, setDisplayedIndustries] = useState<{name: string, color: string}[]>([]);
   const [showCursor, setShowCursor] = useState(true);
   const [currentIndustryIndex, setCurrentIndustryIndex] = useState(0);
@@ -214,11 +216,11 @@ const IndustriesSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gradient mb-4 md:mb-8 reveal">
-            Industries We Serve
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gradient mb-4 md:mb-8 reveal" style={{ lineHeight: '1.4' }}>
+            {t('industries.title')}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto reveal">
-            Our expertise spans across multiple sectors, delivering tailored digital solutions
+            {t('industries.subtitle')}
           </p>
         </div>
 

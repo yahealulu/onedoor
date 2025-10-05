@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import { X, Calendar, MapPin, Award, ChevronLeft } from 'lucide-react';
 import MobileFriendlyGallery from '../components/MobileFriendlyGallery';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,16 +9,33 @@ import { timelineData } from '../data/timelineData';
 interface TimelineItem {
   id: string;
   type: 'exhibition' | 'news';
-  title: string;
-  date: string;
-  location?: string;
-  content: string;
+  title: {
+    en: string;
+    ar: string;
+    tr?: string;
+  };
+  date: {
+    en: string;
+    ar: string;
+    tr?: string;
+  };
+  location?: {
+    en: string;
+    ar: string;
+    tr?: string;
+  };
+  content: {
+    en: string;
+    ar: string;
+    tr?: string;
+  };
   images: string[];
   icon: any;
   isNested?: boolean;
 }
 
 const EventDetailsPage: React.FC = () => {
+  const { t, language } = useLanguage();
   const { eventId } = useParams<{ eventId: string }>();
   const navigate = useNavigate();
   const [event, setEvent] = useState<TimelineItem | null>(null);
@@ -70,14 +88,16 @@ const EventDetailsPage: React.FC = () => {
               className="mb-6 flex items-center gap-2 text-primary hover:text-primary-glow transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
-              <span>Back to Activities</span>
+              <span>{t('nav.activities')}</span>
             </button>
             
-            <h1 className="text-3xl font-bold text-gradient mb-4">
-              Event Not Found
+            <h1 className="text-3xl font-bold text-gradient mb-4" style={{ lineHeight: '1.4' }}>
+              {language === 'en' ? 'Event Not Found' : 'الحدث غير موجود'}
             </h1>
             <p className="text-muted-foreground">
-              The event you're looking for doesn't exist or has been removed.
+              {language === 'en' 
+                ? 'The event you\'re looking for doesn\'t exist or has been removed.' 
+                : 'الحدث الذي تبحث عنه غير موجود أو تمت إزالته.'}
             </p>
           </div>
         </div>
@@ -106,7 +126,7 @@ const EventDetailsPage: React.FC = () => {
             transition={{ delay: 0.2 }}
           >
             <ChevronLeft className="w-5 h-5" />
-            <span>Back to Activities</span>
+            <span>{t('nav.activities')}</span>
           </motion.button>
 
           {/* Event Header */}
@@ -119,18 +139,18 @@ const EventDetailsPage: React.FC = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-full mb-6 mx-auto shadow-glow">
               <IconComponent className="w-10 h-10 text-primary-foreground" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-gradient mb-6">
-              {event.title}
+            <h1 className="text-3xl md:text-5xl font-bold text-gradient mb-6" style={{ lineHeight: '1.4' }}>
+              {language === 'en' ? event.title.en : language === 'tr' ? event.title.tr : event.title.ar}
             </h1>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">{event.date}</span>
+                <span className="text-sm font-medium">{language === 'en' ? event.date.en : language === 'tr' ? event.date.tr : event.date.ar}</span>
               </div>
               {event.location && (
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-primary" />
-                  <span className="text-sm">{event.location}</span>
+                  <span className="text-sm">{language === 'en' ? event.location.en : language === 'tr' ? event.location.tr : event.location.ar}</span>
                 </div>
               )}
             </div>
@@ -146,7 +166,7 @@ const EventDetailsPage: React.FC = () => {
             >
               <MobileFriendlyGallery 
                 images={event.images} 
-                title={event.title} 
+                title={language === 'en' ? event.title.en : language === 'tr' ? event.title.tr : event.title.ar} 
               />
             </motion.div>
           )}
@@ -159,7 +179,7 @@ const EventDetailsPage: React.FC = () => {
             transition={{ delay: 0.5 }}
           >
             <div className="prose prose-invert max-w-none">
-              {event.content.split('\n\n').map((paragraph, idx) => (
+              {(language === 'en' ? event.content.en : language === 'tr' ? event.content.tr : event.content.ar).split('\n\n').map((paragraph, idx) => (
                 <p 
                   key={idx} 
                   className="text-muted-foreground leading-relaxed mb-6 last:mb-0 text-base"

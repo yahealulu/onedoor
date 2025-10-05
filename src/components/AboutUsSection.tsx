@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { easeInOut } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 import flagOfSyria from '../assets/Flag_of_Syria_(2025-).svg.png';
 import flagOfTurkey from '../assets/Flag_of_Turkey.svg.webp';
 import newVision from '../assets/visionid.png';
@@ -11,6 +12,7 @@ import ahmedportrait from '../assets/ahmed-portrait.jpg'
 import abdulrahmanportrait from '../assets/abdulrahman-portrait.jpg'
 
 const AboutUsSection = () => {
+  const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState('story');
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -85,14 +87,15 @@ const AboutUsSection = () => {
           <motion.h2 
             variants={itemVariants}
             className="text-4xl md:text-6xl font-bold text-gradient mb-6"
+            style={{ lineHeight: '1.4' }}
           >
-            About One Door
+            {t('about.title')}
           </motion.h2>
           <motion.p 
             variants={itemVariants}
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
           >
-            Bridging innovation with excellence across borders
+            {t('about.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -114,7 +117,15 @@ const AboutUsSection = () => {
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                {language === 'ar' ? 
+                  (tab === 'story' ? 'قصتنا' : 
+                   tab === 'mission' ? 'المهمة والرؤية' : 
+                   'المواقع') : 
+                 language === 'tr' ? 
+                  (tab === 'story' ? 'Hikayemiz' : 
+                   tab === 'mission' ? 'Misyonumuz ve Vizyonumuz' : 
+                   'Konumlar') : 
+                  tab.charAt(0).toUpperCase() + tab.slice(1)}
               </button>
             ))}
           </div>
@@ -137,12 +148,16 @@ const AboutUsSection = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Story</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{t('about.title')}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Founded with a vision to revolutionize the digital landscape, One Door began as a small team of passionate developers and designers in Damascus, Syria. What started as a local initiative quickly evolved into an international force for digital transformation.
+                  {t('about.description')}
                 </p>
                 <p className="text-muted-foreground mb-4">
-                  Our journey has been marked by innovation, dedication, and an unwavering commitment to excellence. Today, we serve clients across multiple continents, bringing cutting-edge solutions to businesses of all sizes.
+                  {language === 'en' 
+                    ? "Our journey has been marked by innovation, dedication, and an unwavering commitment to excellence. Today, we serve clients across multiple continents, bringing cutting-edge solutions to businesses of all sizes."
+                    : language === 'tr' 
+                    ? "Yolculuğumuz, yenilik, adanmışlık ve mükemmelliğe olan sarsılmaz bağlılığımızla işaretlendi. Bugün, tüm boyutlardaki işletmelere son teknoloji çözümler sunarak birçok kıtada müşterilere hizmet veriyoruz."
+                    : "تميزت رحلتنا بالابتكار والتفاني والالتزام اللام wavering بالتفوق. اليوم، نخدم العملاء عبر قارات متعددة، ونوفر حلولاً متطورة لشركات من جميع الأحجام."}
                 </p>
                 <div className="flex items-center space-x-4 mt-6">
                   <div className="flex -space-x-2">
@@ -168,7 +183,10 @@ const AboutUsSection = () => {
                     />
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    <span className="font-semibold text-foreground">20+ Experts</span> worldwide
+                    <span className="font-semibold text-foreground">
+                      {language === 'en' ? "20+ Experts" : language === 'tr' ? "20+ Uzman" : "20+ خبير"}
+                    </span> 
+                    {language === 'en' ? " worldwide" : language === 'tr' ? " dünya çapında" : " حول العالم"}
                   </p>
                 </div>
               </motion.div>
@@ -182,15 +200,15 @@ const AboutUsSection = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission & Vision</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{t('about.mission.title')}</h3>
                 <div className="flex items-start mb-6">
                   <div className="mr-4 mt-1">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Mission</h4>
+                    <h4 className="font-semibold text-foreground mb-2">{t('about.mission.mission')}</h4>
                     <p className="text-muted-foreground">
-                      To empower businesses through innovative digital solutions that drive growth, efficiency, and competitive advantage in an ever-evolving technological landscape.
+                      {t('about.mission.mission_desc')}
                     </p>
                   </div>
                 </div>
@@ -199,9 +217,9 @@ const AboutUsSection = () => {
                     <div className="w-3 h-3 bg-accent rounded-full"></div>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Vision</h4>
+                    <h4 className="font-semibold text-foreground mb-2">{t('about.mission.vision')}</h4>
                     <p className="text-muted-foreground">
-                      To be the global leader in digital transformation, recognized for our innovative solutions, exceptional service, and commitment to building long-term partnerships with our clients.
+                      {t('about.mission.vision_desc')}
                     </p>
                   </div>
                 </div>
@@ -223,7 +241,7 @@ const AboutUsSection = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-2xl font-bold text-foreground mb-6">Our Global Presence</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">{t('about.locations.title')}</h3>
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="mr-4 mt-1">
@@ -234,10 +252,10 @@ const AboutUsSection = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1">Syria</h4>
+                      <h4 className="font-semibold text-foreground mb-1">{t('about.locations.syria')}</h4>
                       <p className="text-muted-foreground text-sm">
-                        Damascus - Kafr Souseh<br />
-                        Aleppo - Opposite Sheraton Hotel
+                        {t('about.locations.syria_address1')}<br />
+                        {t('about.locations.syria_address2')}
                       </p>
                     </div>
                   </div>
@@ -250,16 +268,16 @@ const AboutUsSection = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1">Turkey</h4>
+                      <h4 className="font-semibold text-foreground mb-1">{t('about.locations.turkey')}</h4>
                       <p className="text-muted-foreground text-sm">
-                        Istanbul - Business District<br />
-                        Ankara - Technology Park
+                        {t('about.locations.turkey_address1')}<br />
+                        {t('about.locations.turkey_address2')}
                       </p>
                     </div>
                   </div>
                   <div className="pt-4 border-t border-border/30">
                     <p className="text-muted-foreground">
-                      With offices spanning across the Middle East and Europe, we bring local expertise with global capabilities to every project.
+                      {t('about.locations.description')}
                     </p>
                   </div>
                 </div>
@@ -320,15 +338,21 @@ const AboutUsSection = () => {
             >
               <div className="glass p-4 rounded-xl text-center border border-border/30">
                 <div className="text-2xl font-bold text-primary">150+</div>
-                <div className="text-sm text-muted-foreground">Projects</div>
+                <div className="text-sm text-muted-foreground">
+                  {language === 'en' ? 'Projects' : language === 'tr' ? 'Projeler' : 'مشاريع'}
+                </div>
               </div>
               <div className="glass p-4 rounded-xl text-center border border-border/30">
                 <div className="text-2xl font-bold text-accent">30+</div>
-                <div className="text-sm text-muted-foreground">Clients</div>
+                <div className="text-sm text-muted-foreground">
+                  {language === 'en' ? 'Clients' : language === 'tr' ? 'Müşteriler' : 'عملاء'}
+                </div>
               </div>
               <div className="glass p-4 rounded-xl text-center border border-border/30">
                 <div className="text-2xl font-bold text-primary">7</div>
-                <div className="text-sm text-muted-foreground">Countries</div>
+                <div className="text-sm text-muted-foreground">
+                  {language === 'en' ? 'Countries' : language === 'tr' ? 'Ülkeler' : 'دول'}
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -345,24 +369,24 @@ const AboutUsSection = () => {
             variants={itemVariants}
             className="text-2xl font-bold text-center text-foreground mb-12"
           >
-            Our Core Values
+            {t('about.mission.core_values')} <span style={{color: 'red'}}>DEBUG: {t('about.mission.core_values')}</span>
           </motion.h3>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Innovation",
-                description: "We constantly push boundaries to deliver cutting-edge solutions.",
+                title: t('about.mission.innovation') + ' DEBUG: ' + t('about.mission.innovation'),
+                description: t('about.mission.innovation_desc'),
                 icon: "💡"
               },
               {
-                title: "Integrity",
-                description: "We build trust through transparent and ethical practices.",
+                title: t('about.mission.integrity'),
+                description: t('about.mission.integrity_desc'),
                 icon: "🛡️"
               },
               {
-                title: "Excellence",
-                description: "We strive for perfection in every project we undertake.",
+                title: t('about.mission.excellence'),
+                description: t('about.mission.excellence_desc'),
                 icon: "⭐"
               }
             ].map((value, index) => (

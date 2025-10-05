@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Facebook, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
+  const { t, language } = useLanguage();
   const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -81,13 +83,13 @@ const Footer = () => {
             </div>
             <div className="space-y-3 mb-8">
               <p className="text-foreground font-medium text-lg">
-                Success stories begin with the right partner.
+                {t('footer.success_stories')}
               </p>
               <p className="text-muted-foreground">
-                Technology is closer and easier than you imagine.
+                {t('footer.technology')}
               </p>
               <p className="text-muted-foreground">
-                Together, we build digital success stories that inspire.
+                {t('footer.together')}
               </p>
             </div>
           </div>
@@ -95,14 +97,14 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="reveal">
             <h4 className="text-lg font-semibold text-foreground mb-6">
-              Quick Links
+              {t('footer.company')}
             </h4>
             <ul className="space-y-3">
               {[
-                { name: 'About Us', id: 'about-us' },
-                { name: 'Services', id: 'services' },
-                { name: 'Our Clients', id: 'clients' },
-                { name: 'Contact Us', id: 'contact' }
+                { name: t('about.title'), id: 'about-us' },
+                { name: t('nav.services'), id: 'services' },
+                { name: t('nav.clients'), id: 'clients' },
+                { name: t('nav.contact'), id: 'contact' }
               ].map((link) => (
                 <li key={link.name}>
                   <a 
@@ -122,11 +124,14 @@ const Footer = () => {
           {/* Legal & Contact */}
           <div className="reveal">
             <h4 className="text-lg font-semibold text-foreground mb-6">
-              Legal & Contact
+              {t('footer.contact')}
             </h4>
             <ul className="space-y-3 mb-6">
-              {['Privacy Policy', 'Terms of Use'].map((link) => (
-                <li key={link}>
+              {[
+                t('footer.privacy_policy') || (language === 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'),
+                t('footer.terms_of_use') || (language === 'en' ? 'Terms of Use' : 'شروط الاستخدام')
+              ].map((link, index) => (
+                <li key={index}>
                   <a 
                     href="#"
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -140,22 +145,22 @@ const Footer = () => {
             {/* Locations */}
             <div className="space-y-2 mb-4">
               <p className="text-sm text-muted-foreground">
-                Syria - Damascus - Kafr Souseh
+                {t('footer.syria_address1')}
               </p>
               <p className="text-sm text-muted-foreground">
-                Syria - Aleppo - Opposite Sheraton Hotel
+                {t('footer.syria_address2')}
               </p>
             </div>
 
             {/* Phone Numbers */}
             <div className="space-y-1">
               {[
-                '00963969697088',
-                '00963930342875', 
-                '00963990486277',
-                '00963 995 550 310'
-              ].map((phone) => (
-                <p key={phone} className="text-sm text-muted-foreground">
+                t('footer.phone1') || '00963969697088',
+                t('footer.phone2') || '00963930342875', 
+                t('footer.phone3') || '00963990486277',
+                t('footer.phone4') || '00963 995 550 310'
+              ].map((phone, index) => (
+                <p key={index} className="text-sm text-muted-foreground">
                   {phone}
                 </p>
               ))}
@@ -166,7 +171,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border/30 mt-12 pt-8 text-center reveal">
           <p className="text-muted-foreground">
-            © 2025 One Door. All rights reserved. Building digital success stories.
+            © 2025 One Door. {t('footer.rights')} {t('footer.building_digital')}
           </p>
         </div>
       </div>

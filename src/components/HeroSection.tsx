@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useIsMobile } from '../hooks/use-mobile';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
@@ -70,7 +72,7 @@ const HeroSection = () => {
             {/* Advanced Scroll Indicator */}
             <div className="flex flex-col items-center space-y-6 mt-12 animate-fade-in" style={{ animationDelay: '1s' }}>
               <p className="text-white/80 text-lg font-light tracking-[0.2em] uppercase animate-pulse">
-                Scroll to explore
+                {t('hero.cta')}
               </p>
               
               {/* Sophisticated Scroll Arrow */}
@@ -121,7 +123,7 @@ const HeroSection = () => {
 
           <div className="relative z-10 pb-12 flex flex-col items-center space-y-4">
             <p className="text-foreground/80 text-lg font-light tracking-wide">
-              Scroll to explore
+              {t('hero.cta')}
             </p>
             
             <div className="animate-bounce">

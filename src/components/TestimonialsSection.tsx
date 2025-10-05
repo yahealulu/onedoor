@@ -1,81 +1,178 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Star, Code, Smartphone, Globe, Database, Cpu, Zap, Quote } from 'lucide-react';
 
 const testimonials = [
   {
     id: 1,
-    name: "أحمد محمد",
-    role: "مدير شركة التقنية المتقدمة",
+    name: {
+      ar: "أحمد محمد",
+      en: "Ahmad Mohammad",
+      tr: "Ahmet Mehmet"
+    },
+    role: {
+      ar: "مدير شركة التقنية المتقدمة",
+      en: "Director of Advanced Technology Company",
+      tr: "Gelişmiş Teknoloji Şirketi Müdürü"
+    },
     company: "TechCorp",
-    content: "فريق استثنائي قدم لنا حلول تقنية مبتكرة فاقت توقعاتنا. الاحترافية والجودة كانت على أعلى مستوى.",
+    content: {
+      ar: "فريق استثنائي قدم لنا حلول تقنية مبتكرة فاقت توقعاتنا. الاحترافية والجودة كانت على أعلى مستوى.",
+      en: "An exceptional team that provided us with innovative technical solutions that exceeded our expectations. Professionalism and quality were at the highest level.",
+      tr: "Beklentilerimizi aşan yenilikçi teknik çözümler sunan olağanüstü bir ekip. Profesyonellik ve kalite en yüksek seviyede idi."
+    },
     platform: "linkedin",
     handle: "@ahmed_tech"
   },
   {
     id: 2,
-    name: "فاطمة العلي",
-    role: "مؤسسة متجر إلكتروني",
+    name: {
+      ar: "فاطمة العلي",
+      en: "Fatima Al-Ali",
+      tr: "Fatma Aliali"
+    },
+    role: {
+      ar: "مؤسسة متجر إلكتروني",
+      en: "Founder of E-Store",
+      tr: "E-Mağaza Kurucusu"
+    },
     company: "E-Store Plus",
-    content: "تطبيق الجوال الذي طوروه لنا زاد من مبيعاتنا بنسبة 300%. فريق محترف وملتزم بالمواعيد.",
+    content: {
+      ar: "تطبيق الجوال الذي طوروه لنا زاد من مبيعاتنا بنسبة 300%. فريق محترف وملتزم بالمواعيد.",
+      en: "The mobile app they developed for us increased our sales by 300%. A professional team committed to deadlines.",
+      tr: "Bizim için geliştirdikleri mobil uygulama satışlarımızı %300 artırdı. Zamanında teslimat yapan profesyonel bir ekip."
+    },
     platform: "facebook",
     handle: "@fatima_store"
   },
   {
     id: 3,
-    name: "خالد السعيد",
-    role: "رئيس قسم التسويق",
+    name: {
+      ar: "خالد السعيد",
+      en: "Khalid Al-Saeed",
+      tr: "Halit Sait"
+    },
+    role: {
+      ar: "رئيس قسم التسويق",
+      en: "Marketing Department Head",
+      tr: "Pazarlama Departman Başkanı"
+    },
     company: "Digital Market",
-    content: "الموقع الإلكتروني الجديد أحدث نقلة نوعية في حضورنا الرقمي. تصميم رائع وأداء ممتاز.",
+    content: {
+      ar: "الموقع الإلكتروني الجديد أحدث نقلة نوعية في حضورنا الرقمي. تصميم رائع وأداء ممتاز.",
+      en: "The new website created a qualitative shift in our digital presence. Beautiful design and excellent performance.",
+      tr: "Yeni web sitesi dijital varlığımızda niteliksel bir değişim yarattı. Güzel tasarım ve mükemmel performans."
+    },
     platform: "twitter",
     handle: "@khalid_marketing"
   },
   {
     id: 4,
-    name: "نورا الأحمد",
-    role: "مديرة العمليات",
+    name: {
+      ar: "نورا الأحمد",
+      en: "Nora Al-Ahmad",
+      tr: "Nure Alahmet"
+    },
+    role: {
+      ar: "مديرة العمليات",
+      en: "Operations Manager",
+      tr: "Operasyon Müdürü"
+    },
     company: "Smart Systems",
-    content: "نظام إدارة المحتوى الذي أنشأوه سهل علينا إدارة موقعنا بشكل كامل. دعم فني ممتاز ومتواصل.",
+    content: {
+      ar: "نظام إدارة المحتوى الذي أنشأوه سهل علينا إدارة موقعنا بشكل كامل. دعم فني ممتاز ومتواصل.",
+      en: "The content management system they created made it easy for us to manage our website completely. Excellent and continuous technical support.",
+      tr: "Oluşturdukları içerik yönetim sistemi web sitemizi tamamen yönetmemizi kolaylaştırdı. Mükemmel ve sürekli teknik destek."
+    },
     platform: "linkedin",
     handle: "@nora_ops"
   },
   {
     id: 5,
-    name: "سعد الخالدي",
-    role: "مطور برمجيات",
+    name: {
+      ar: "سعد الخالدي",
+      en: "Saad Al-Khaldi",
+      tr: "Saad Halidi"
+    },
+    role: {
+      ar: "مطور برمجيات",
+      en: "Software Developer",
+      tr: "Yazılım Geliştirici"
+    },
     company: "DevHub",
-    content: "تجربة رائعة في العمل معهم. كود نظيف وتوثيق ممتاز. أنصح بهم بشدة.",
+    content: {
+      ar: "تجربة رائعة في العمل معهم. كود نظيف وتوثيق ممتاز. أنصح بهم بشدة.",
+      en: "Great experience working with them. Clean code and excellent documentation. I highly recommend them.",
+      tr: "Onlarla çalışmak harika bir deneyimdi. Temiz kod ve mükemmel dokümantasyon. Onları şiddetle tavsiye ederim."
+    },
     platform: "github",
     handle: "@saad_dev"
   },
   {
     id: 6,
-    name: "ريم الشمري",
-    role: "مديرة المشاريع",
+    name: {
+      ar: "ريم الشمري",
+      en: "Rima Al-Shamri",
+      tr: "Rima Şamiri"
+    },
+    role: {
+      ar: "مديرة المشاريع",
+      en: "Project Manager",
+      tr: "Proje Müdürü"
+    },
     company: "InnovateLab",
-    content: "إدارة المشروع كانت احترافية من البداية للنهاية. تسليم في الوقت المحدد والجودة عالية.",
+    content: {
+      ar: "إدارة المشروع كانت احترافية من البداية للنهاية. تسليم في الوقت المحدد والجودة عالية.",
+      en: "Project management was professional from start to finish. Delivery on time and high quality.",
+      tr: "Proje yönetimi baştan sona profesyoneldi. Zamanında teslimat ve yüksek kalite."
+    },
     platform: "linkedin",
     handle: "@reem_pm"
   },
   {
     id: 7,
-    name: "علي الأسمر",
-    role: "رائد أعمال",
+    name: {
+      ar: "علي الأسمر",
+      en: "Ali Al-Asmar",
+      tr: "Ali Asmar"
+    },
+    role: {
+      ar: "رائد أعمال",
+      en: "Entrepreneur",
+      tr: "Girişimci"
+    },
     company: "StartupX",
-    content: "ساعدونا في تحويل فكرتنا إلى تطبيق ناجح. الفريق متفهم ومبدع في الحلول.",
+    content: {
+      ar: "ساعدونا في تحويل فكرتنا إلى تطبيق ناجح. الفريق متفهم ومبدع في الحلول.",
+      en: "They helped us transform our idea into a successful application. The team is understanding and creative in solutions.",
+      tr: "Fikrimizi başarılı bir uygulamaya dönüştürmemize yardımcı oldular. Ekip çözüm konusunda anlayışlı ve yaratıcı."
+    },
     platform: "twitter",
     handle: "@ali_entrepreneur"
   },
   {
     id: 8,
-    name: "هند الزهراني",
-    role: "مختصة UX/UI",
+    name: {
+      ar: "هند الزهراني",
+      en: "Hind Al-Zahrani",
+      tr: "Hind Zehranî"
+    },
+    role: {
+      ar: "مختصة UX/UI",
+      en: "UX/UI Specialist",
+      tr: "UX/UI Uzmanı"
+    },
     company: "DesignStudio",
-    content: "التصميم والتطوير متناغمان بشكل مثالي. تجربة مستخدم رائعة ومظهر جذاب.",
+    content: {
+      ar: "التصميم والتطوير متناغمان بشكل مثالي. تجربة مستخدم رائعة ومظهر جذاب.",
+      en: "Design and development are perfectly harmonious. Great user experience and attractive appearance.",
+      tr: "Tasarım ve geliştirme mükemmel uyum içinde. Harika kullanıcı deneyimi ve çekici görünüm."
+    },
     platform: "dribbble",
     handle: "@hind_design"
   }
-];
+];;
 
 // Duplicate testimonials for infinite scroll
 const leftColumnTestimonials = [...testimonials, ...testimonials];
@@ -83,6 +180,7 @@ const rightColumnTestimonials = [...testimonials.slice().reverse(), ...testimoni
 const mobileTestimonials = [...testimonials, ...testimonials];
 
 const TestimonialsSection = () => {
+  const { t, language } = useLanguage();
   const [inView, setInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   
@@ -162,13 +260,13 @@ const TestimonialsSection = () => {
       </div>
 
       <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
-        "{testimonial.content}"
+        "{language === 'ar' ? testimonial.content.ar : language === 'tr' ? testimonial.content.tr : testimonial.content.en}"
       </p>
 
       <div className="flex items-center justify-between">
         <div>
-          <h4 className="font-semibold text-sm">{testimonial.name}</h4>
-          <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+          <h4 className="font-semibold text-sm">{language === 'ar' ? testimonial.name.ar : language === 'tr' ? testimonial.name.tr : testimonial.name.en}</h4>
+          <p className="text-xs text-muted-foreground">{language === 'ar' ? testimonial.role.ar : language === 'tr' ? testimonial.role.tr : testimonial.role.en}</p>
           <p className="text-xs text-primary/60 mt-1">{testimonial.handle}</p>
         </div>
         <div className="text-right">
@@ -192,13 +290,13 @@ const TestimonialsSection = () => {
       </div>
 
       <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
-        "{testimonial.content}"
+        "{language === 'ar' ? testimonial.content.ar : language === 'tr' ? testimonial.content.tr : testimonial.content.en}"
       </p>
 
       <div className="flex items-center justify-between">
         <div>
-          <h4 className="font-semibold text-sm">{testimonial.name}</h4>
-          <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+          <h4 className="font-semibold text-sm">{language === 'ar' ? testimonial.name.ar : language === 'tr' ? testimonial.name.tr : testimonial.name.en}</h4>
+          <p className="text-xs text-muted-foreground">{language === 'ar' ? testimonial.role.ar : language === 'tr' ? testimonial.role.tr : testimonial.role.en}</p>
           <p className="text-xs text-primary/60 mt-1">{testimonial.handle}</p>
         </div>
         <div className="text-right">
@@ -340,7 +438,9 @@ const TestimonialsSection = () => {
             className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6"
           >
             <Star className="w-4 h-4 text-primary fill-current" />
-            <span className="text-sm font-medium text-primary">آراء عملائنا</span>
+            <span className="text-sm font-medium text-primary">
+              {language === 'ar' ? 'آراء عملائنا' : language === 'tr' ? 'Müşteri Yorumları' : 'Customer Reviews'}
+            </span>
           </motion.div>
 
           <motion.h2
@@ -348,8 +448,9 @@ const TestimonialsSection = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold bg-gradient-to-l from-primary via-secondary to-primary bg-clip-text text-transparent mb-6"
+            style={{ lineHeight: '1.4' }}
           >
-            ثقة من جميع أنحاء العالم
+            {t('testimonials.title')}
           </motion.h2>
 
           <motion.p
@@ -358,7 +459,7 @@ const TestimonialsSection = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            نفخر بثقة عملائنا وآرائهم الإيجابية التي تحفزنا على تقديم الأفضل دائماً
+            {t('testimonials.subtitle')}
           </motion.p>
         </motion.div>
 

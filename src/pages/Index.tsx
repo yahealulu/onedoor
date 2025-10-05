@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 import { LoaderContext } from '../App';
 import Loader from '../components/Loader';
 import Header from '../components/Header';
@@ -14,10 +15,12 @@ import ActivitiesSection from '../components/ActivitiesSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import Footer from '../components/Footer';
 import AboutUsSection from '../components/AboutUsSection';
+import ProjectsSection from '../components/ProjectsSection';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const { language } = useLanguage();
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
   const [activitiesInView, setActivitiesInView] = useState(false);
   const { hasSeenLoader, setHasSeenLoader } = useContext(LoaderContext);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -80,6 +83,7 @@ const Index = () => {
         <HeroSection />
         <AboutUsSection />
         <div className="relative z-20">
+          <ProjectsSection />
           <ServicesSection />
           <ClientsSection />
           <IndustriesSection />
