@@ -59,11 +59,11 @@ const ContactSection = () => {
                 <div className="flex items-start space-x-3">
                   <span className="text-primary mt-1">•</span>
                   <p className="text-muted-foreground">
-                    {language === 'en' 
-                      ? 'Syria - Damascus - Kafr Souseh' 
-                      : language === 'tr' 
-                      ? 'Suriye - Şam - Kafr Suseh' 
-                      : 'سوريا - دمشق - كفر سوسة'}
+                    {language === 'en' ? 'Syria - Damascus - Mazzeh' 
+                      : language === 'tr' ? 'Suriye - Şam - Mazzeh' 
+                      : language === 'ar' 
+                      ? 'Suriye - Şam - Mazzeh' 
+                      : 'سوريا - دمشق - مزة ساحة المواساة'}
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -87,9 +87,7 @@ const ContactSection = () => {
               </h3>
               <div className="space-y-3">
                 {[
-                  '00963969697088',
-                  '00963930342875',
-                  '00963990486277',
+              
                   '+963 995 550 310'
                 ].map((phone, index) => (
                   <div key={index} className="flex items-center space-x-3">

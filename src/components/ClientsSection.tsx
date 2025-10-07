@@ -91,24 +91,7 @@ const ClientsSection = () => {
         tr: "İşlerimizi geliştirmede önemli katkıda bulunan yenilikçi dijital çözümler."
       }
     },
-    {
-      name: {
-        ar: "نورا الساعدي",
-        en: "Noura Al-Saeedi",
-        tr: "Noura Al-Saeedi"
-      },
-      role: {
-        ar: "مدير مشاريع رقمية",
-        en: "Digital Project Manager",
-        tr: "Dijital Proje Müdürü"
-      },
-      image: nouraPortrait,
-      testimonial: {
-        ar: "أنجزت فرقهم تحولاً رقمياً كاملاً لشركتنا. خبرتهم في إدارة المشاريع جعلت رؤيتنا واقعاً.",
-        en: "One Door transformed our digital presence completely. Their expertise in project management made our vision a reality.",
-        tr: "One Door dijital varlığımızı tamamen dönüştürdü. Proje yönetimi konusundaki uzmanlıkları vizyonumuzu gerçeğe dönüştürdü."
-      }
-    }
+  
   ];
 
   return (

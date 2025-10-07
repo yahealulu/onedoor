@@ -155,10 +155,8 @@ const Footer = () => {
             {/* Phone Numbers */}
             <div className="space-y-1">
               {[
-                t('footer.phone1') || '00963969697088',
-                t('footer.phone2') || '00963930342875', 
-                t('footer.phone3') || '00963990486277',
-                t('footer.phone4') || '00963 995 550 310'
+               
+             t('footer.phone4') || '00963 995 550 310'
               ].map((phone, index) => (
                 <p key={index} className="text-sm text-muted-foreground">
                   {phone}

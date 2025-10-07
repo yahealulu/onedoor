@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +21,23 @@ const Header = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu after navigation
+      setIsMobileMenuOpen(false);
     }
   };
 
   const handleLanguageChange = (lang: 'en' | 'ar' | 'tr') => {
     setLanguage(lang);
+    setIsLanguageMenuOpen(false);
     setIsMobileMenuOpen(false);
   };
+
+  // Language options with full names
+  const languageOptions = [
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' }
+  ];
 
   return (
     <header 
@@ -47,113 +59,152 @@ const Header = () => {
             />
           </div>
 
-          {/* Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('services')}
-              className="btn-ghost"
+              className="btn-ghost px-3 py-2 rounded-lg transition-all duration-300 hover:bg-secondary/50"
             >
               {t('nav.services')}
             </button>
             <button 
+              onClick={() => scrollToSection('projects')}
+              className="btn-ghost px-3 py-2 rounded-lg transition-all duration-300 hover:bg-secondary/50"
+            >
+              {language === 'ar' ? 'المشاريع' : language === 'tr' ? 'Projeler' : 'Projects'}
+            </button>
+            <button 
               onClick={() => scrollToSection('clients')}
-              className="btn-ghost"
+              className="btn-ghost px-3 py-2 rounded-lg transition-all duration-300 hover:bg-secondary/50"
             >
               {t('nav.clients')}
             </button>
             <button 
+              onClick={() => scrollToSection('stuff')}
+              className="btn-ghost px-3 py-2 rounded-lg transition-all duration-300 hover:bg-secondary/50"
+            >
+              {language === 'ar' ? 'فريقنا' : language === 'tr' ? 'Ekibimiz' : 'Our Team'}
+            </button>
+            <button 
               onClick={() => scrollToSection('achievements')}
-              className="btn-ghost"
+              className="btn-ghost px-3 py-2 rounded-lg transition-all duration-300 hover:bg-secondary/50"
             >
               {t('nav.achievements')}
             </button>
             <button 
               onClick={() => scrollToSection('activities')}
-              className="btn-ghost"
+              className="btn-ghost px-3 py-2 rounded-lg transition-all duration-300 hover:bg-secondary/50"
             >
               {t('nav.activities')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="btn-outline"
+              className="btn-outline px-4 py-2 rounded-lg transition-all duration-300"
             >
               {t('nav.contact')}
             </button>
             
-            {/* Language Switcher */}
-            <div className="flex space-x-2">
+            {/* Enhanced Language Switcher */}
+            <div className="relative">
               <button 
-                onClick={() => handleLanguageChange('en')}
-                className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
-                  language === 'en' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                }`}
+                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 hover:from-primary/20 hover:to-secondary/20 transition-all duration-300 group"
               >
-                EN
+                <span className="text-lg">{languageOptions.find(lang => lang.code === language)?.flag}</span>
+                <span className="font-medium text-foreground">
+                  {languageOptions.find(lang => lang.code === language)?.code.toUpperCase()}
+                </span>
+                <svg 
+                  className={`w-4 h-4 text-foreground transition-transform duration-300 ${isLanguageMenuOpen ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-              <button 
-                onClick={() => handleLanguageChange('ar')}
-                className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
-                  language === 'ar' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                }`}
-              >
-                AR
-              </button>
-              <button 
-                onClick={() => handleLanguageChange('tr')}
-                className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
-                  language === 'tr' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                }`}
-              >
-                TR
-              </button>
+
+              {/* Language Dropdown */}
+              <AnimatePresence>
+                {isLanguageMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-2 w-48 rounded-xl bg-background/90 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden z-50"
+                  >
+                    {languageOptions.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code as 'en' | 'ar' | 'tr')}
+                        className={`flex items-center space-x-3 w-full px-4 py-3 text-left transition-all duration-200 ${
+                          language === lang.code
+                            ? 'bg-primary/10 text-primary font-medium'
+                            : 'hover:bg-secondary/50 text-foreground'
+                        }`}
+                      >
+                        <span className="text-lg">{lang.flag}</span>
+                        <span>{lang.name}</span>
+                        {language === lang.code && (
+                          <svg className="w-5 h-5 text-primary ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-3">
-            {/* Language Switcher for Mobile */}
-            <div className="flex space-x-1">
+            {/* Enhanced Mobile Language Switcher */}
+            <div className="relative">
               <button 
-                onClick={() => handleLanguageChange('en')}
-                className={`px-2 py-1 rounded text-xs font-medium transition-all ${
-                  language === 'en' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                }`}
+                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                className="flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20"
               >
-                EN
+                <span className="text-base">{languageOptions.find(lang => lang.code === language)?.flag}</span>
+                <span className="font-medium text-foreground text-sm">
+                  {languageOptions.find(lang => lang.code === language)?.code.toUpperCase()}
+                </span>
               </button>
-              <button 
-                onClick={() => handleLanguageChange('ar')}
-                className={`px-2 py-1 rounded text-xs font-medium transition-all ${
-                  language === 'ar' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                }`}
-              >
-                AR
-              </button>
-              <button 
-                onClick={() => handleLanguageChange('tr')}
-                className={`px-2 py-1 rounded text-xs font-medium transition-all ${
-                  language === 'tr' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                }`}
-              >
-                TR
-              </button>
+
+              {/* Mobile Language Dropdown */}
+              <AnimatePresence>
+                {isLanguageMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-1 w-40 rounded-lg bg-background/90 backdrop-blur-xl border border-border/50 shadow-lg overflow-hidden z-50"
+                  >
+                    {languageOptions.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code as 'en' | 'ar' | 'tr')}
+                        className={`flex items-center space-x-2 w-full px-3 py-2.5 text-left text-sm transition-all duration-200 ${
+                          language === lang.code
+                            ? 'bg-primary/10 text-primary font-medium'
+                            : 'hover:bg-secondary/50 text-foreground'
+                        }`}
+                      >
+                        <span className="text-base">{lang.flag}</span>
+                        <span>{lang.name}</span>
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="btn-ghost"
+              className="btn-ghost p-2 rounded-lg"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -163,35 +214,47 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="px-6 py-4 space-y-3 glass-light mt-4 rounded-xl">
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+          <div className="px-4 py-3 space-y-2 glass-light rounded-xl border border-border/30">
             <button 
               onClick={() => { scrollToSection('services'); setIsMobileMenuOpen(false); }}
-              className="block w-full text-left btn-ghost"
+              className="block w-full text-left px-4 py-2.5 rounded-lg btn-ghost transition-all duration-300"
             >
               {t('nav.services')}
             </button>
             <button 
+              onClick={() => { scrollToSection('projects'); setIsMobileMenuOpen(false); }}
+              className="block w-full text-left px-4 py-2.5 rounded-lg btn-ghost transition-all duration-300"
+            >
+              {language === 'ar' ? 'المشاريع' : language === 'tr' ? 'Projeler' : 'Projects'}
+            </button>
+            <button 
               onClick={() => { scrollToSection('clients'); setIsMobileMenuOpen(false); }}
-              className="block w-full text-left btn-ghost"
+              className="block w-full text-left px-4 py-2.5 rounded-lg btn-ghost transition-all duration-300"
             >
               {t('nav.clients')}
             </button>
             <button 
+              onClick={() => { scrollToSection('stuff'); setIsMobileMenuOpen(false); }}
+              className="block w-full text-left px-4 py-2.5 rounded-lg btn-ghost transition-all duration-300"
+            >
+              {language === 'ar' ? 'فريقنا' : language === 'tr' ? 'Ekibimiz' : 'Our Team'}
+            </button>
+            <button 
               onClick={() => { scrollToSection('achievements'); setIsMobileMenuOpen(false); }}
-              className="block w-full text-left btn-ghost"
+              className="block w-full text-left px-4 py-2.5 rounded-lg btn-ghost transition-all duration-300"
             >
               {t('nav.achievements')}
             </button>
             <button 
               onClick={() => { scrollToSection('activities'); setIsMobileMenuOpen(false); }}
-              className="block w-full text-left btn-ghost"
+              className="block w-full text-left px-4 py-2.5 rounded-lg btn-ghost transition-all duration-300"
             >
               {t('nav.activities')}
             </button>
             <button 
               onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }}
-              className="block w-full text-left btn-outline"
+              className="block w-full text-left px-4 py-2.5 rounded-lg btn-outline transition-all duration-300"
             >
               {t('nav.contact')}
             </button>

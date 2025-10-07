@@ -4,27 +4,18 @@ import activity2 from '../assets/activity-2.jpg';
 import activity3 from '../assets/activity-3.jpg';
 import activity4 from '../assets/activity-4.jpg';
 import activity5 from '../assets/activity-5.jpg';
-import activity6 from '../assets/activity-6.jpg';
 import activity7 from '../assets/activity-7.jpg';
 import activity8 from '../assets/activity-8.jpg';
 import activity9 from '../assets/activity-9.jpg';
 import activity10 from '../assets/activity-10.jpg';
-import activity11 from '../assets/11.jpg';
-import activity12 from '../assets/12.jpg';
 import activity13 from '../assets/13.jpg';
 import activity14 from '../assets/14.jpg';
 import activity15 from '../assets/15.jpg';
-import activity16 from '../assets/16.jpg';
 import activity17 from '../assets/17.jpg';
 import activity18 from '../assets/18.jpg';
 import activity19 from '../assets/19.jpg';
 import activity20 from '../assets/20.jpg';
 import activity21 from '../assets/21.jpg';
-import activity22 from '../assets/22.jpg';
-import activity23 from '../assets/23.jpg';
-import activity24 from '../assets/24.jpg';
-import activity25 from '../assets/25.jpg';
-import activity26 from '../assets/26.jpg';
 import activity27 from '../assets/27.jpg';
 
 export interface TimelineItem {
@@ -79,7 +70,7 @@ export const timelineData: TimelineItem[] = [
       ar: "من 31 يوليو إلى 2 أغسطس 2025، شاركت شركة One Door بفخر في قمة تقنية سيليكون، التي أقيمت في فندق الشيراتون في حلب. فتحت كافتيريا الباب للمستقبل، وعرضت المعنى الحقيقي للإبداع التكنولوجي. شهد الزوار حلولاً رقمية مبتكرة، وفرصاً للنمو المهني، وإمكانية الشراكات الاستراتيجية.\n\nفي المعرض، قدمنا تطبيقات ذكية مدعومة بالذكاء الاصطناعي - حلولاً لا تحل المشاكل فحسب، بل تتعلم وتكيف وتنمو مع المستخدمين. كان الحدث فرصة ملهمة للتواصل مع مجتمع التكنولوجيا وتبادل الأفكار وإبراز رؤيتنا للتحول الرقمي في سوريا وما بعد.",
       tr: "31 Temmuz - 2 Ağustos 2025 tarihlerinde, One Door şirketi Halep'te Sheraton Otel'de düzenlenen SİLİCON Teknoloji Zirvesi'ne gururla katıldı. Standımız, teknolojik yaratıcılığın gerçek anlamını sergileyerek geleceği açtı. Ziyaretçiler, yenilikçi dijital çözümler, kariyer gelişimi fırsatları ve stratejik ortaklık potansiyeli yaşadı.\n\nFuarda, yalnızca sorunları çözmekle kalmayıp aynı zamanda kullanıcılarla birlikte öğrenen, uyum sağlayan ve büyüyen yapay zeka destekli akıllı uygulamalar sunduk. Etkinlik, teknoloji topluluğuyla bağlantı kurmak, fikir alışverişi yapmak ve Suriye ve ötesi için dijital dönüşüm vizyonumuzu vurgulamak açısından ilham verici bir fırsattı."
     },
-    images: [activity1, activity2, activity3],
+    images: [activity2 ],
     icon: Award
   },
   {
@@ -105,7 +96,7 @@ export const timelineData: TimelineItem[] = [
       ar: "من 27 أغسطس إلى 5 سبتمبر 2025، شاركت شركة One Door في المعرض الدولي الـ62 في دمشق. لفت حضورنا الانتباه إلى أحدث الابتكارات في الذكاء الاصطناعي والتكنولوجيا الرقمية. اكتشف الزوار كيف تعيد One Door تعريف البرمجة من خلال حلول ذكية وقابلة للتكيف تترك أثراً فريداً في صناعة الذكاء الاصطناعي والتكنولوجيا.",
       tr: "27 Ağustos - 5 Eylül 2025 tarihleri arasında, One Door Şam Fuar Alanı'nda düzenlenen 62. Şam Uluslararası Fuarı'na katıldı. Yerel ziyaretçiler, yapay zeka ve dijital teknolojideki en son yeniliklere dikkat çekti. Ziyaretçiler, One Door'un yapay zeka ve teknoloji endüstrisinde benzersiz bir iz bırakan akıllı ve uyarlanabilir çözümler aracılığıyla programlamayı nasıl yeniden tanımladığını keşfetti."
     },
-    images: [activity4, activity5, activity6, activity7, activity8],
+    images: [activity4, activity5, activity7, activity8],
     icon: Users
   },
   {
@@ -126,7 +117,7 @@ export const timelineData: TimelineItem[] = [
       ar: "في إطار مسيرة سوريا نحو التحديث والتحول الرقمي، عقد المدير العام لشركة One Door، المهندس محمد المحاميد، اجتماعاً إنتاجياً مع السيد غسان عكاش، المدير العام لشركة الاتصالات السورية. ركز الاجتماع على تعزيز التعاون ودعم عمل الوزارات والمؤسسات بالحلول الرقمية المتقدمة. وافق الطرفان على خطوات عملية، مما مهد الطريق لمزيد من الاتصال والكفاءة والازدهار في سوريا.",
       tr: "Suriye'nin modernizasyon ve dijital dönüşüm yolculuğunun bir parçası olarak, One Door Genel Müdürü Mühendis Muhammed el-Muhammed, Suriye Telekom Genel Müdürü Bay Gassan Akkaş ile verimli bir toplantı gerçekleştirdi. Toplantı, iş birliğini güçlendirmeye ve bakanlıklar ile kurumların gelişmiş dijital çözümlerle desteklenmesine odaklandı. Taraflar, daha fazla bağlantı, verimlilik ve refaha yol açan pratik adımlarda anlaştı."
     },
-    images: [activity9, activity10, activity11],
+    images: [activity9, activity10],
     icon: Handshake,
     isNested: true
   },
@@ -148,7 +139,7 @@ export const timelineData: TimelineItem[] = [
       ar: "خلال مشاركتها في المعرض الدولي دمشق، زارت شركة One Door الشركات السعودية الحاضرة في المعرض. قدمت الزيارة فرصة لتقديم رؤية شركة One Door وتوسيع الشراكات وتبادل الخبرات مع الشركات الرائدة. وهذا يعكس التزامنا ببناء علاقات قوية إقليمياً وتعزيز التعاون لتحقيق النمو المتبادل.",
       tr: "Şam Uluslararası Fuarı'na katılımı sırasında, One Door fuar yerinde bulunan Suudi şirketlerini ziyaret etti. Ziyaret, One Door'un vizyonunu sunmak, ortaklıkları genişletmek ve lider şirketlerle deneyim alışverişi yapmak için bir fırsat sağladı. Bu, bölgesel olarak güçlü bağlantılar kurma ve karşılıklı büyüme için iş birliğini teşvik etme taahhüdümüzü yansıtmaktadır."
     },
-    images: [activity12, activity13, activity14, activity15, activity16, activity17, activity18, activity19],
+    images: [ activity13, activity14, activity15, activity17, activity18, activity19],
     icon: Users,
     isNested: true
   },
@@ -192,7 +183,7 @@ export const timelineData: TimelineItem[] = [
       ar: "في خطوة بارزة نحو بناء سوريا رقمية، وقعت شركة One Door للبرمجيات، ممثلة بالمدير العام المهندس محمد المحاميد، مذكرة تفاهم مع الهيئة الوطنية للابتكار، ممثلة بالمدير التنفيذي المهندس محمد عبودان. تهدف الاتفاقية إلى التعاون في مشاريع ومبادرات التحول الرقمي، ودعم رقمنة الحكومة والمجتمع، ووضع سوريا بثبات على مسار نحو مستقبل رقمي واعد.",
       tr: "Dijital Suriye inşa etme yolunda önemli bir adım olarak, One Door Yazılım Şirketi Genel Müdürü Mühendis Muhammed el-Muhammed, Ulusal İnovasyon Kurumu Genel Müdürü Mühendis Muhammed Abudan ile bir mutabakat anlaşması imzaladı. Anlaşma, dijital dönüşüm projeleri ve girişimlerinde iş birliği yapmayı, hükümet ve toplumun dijitalleşmesini desteklemeyi ve Suriye'yi parlak bir dijital geleceğe doğru sağlam bir şekilde yönlendirmeyi amaçlıyor."
     },
-    images: [activity22, activity23, activity24, activity25, activity26, activity27],
+    images: [ activity27],
     icon: Award,
     isNested: true
   }
