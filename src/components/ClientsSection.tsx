@@ -4,6 +4,9 @@ import nouraPortrait from '../assets/noura-portrait.jpg';
 import ahmedPortrait from '../assets/ahmed-portrait.jpg';
 import sarahPortrait from '../assets/sarah-portrait.jpg';
 import abdulrahmanPortrait from '../assets/abdulrahman-portrait.jpg';
+import ataa from '../assets/partners/ataa.jpg';
+import ministryoftelecom from '../assets/partners/ministryoftelecom.jpg';
+import ecomedge from '../assets/partners/ecomedge.jpg';
 
 const ClientsSection = () => {
   const { t } = useLanguage();
@@ -35,28 +38,76 @@ const ClientsSection = () => {
 
   const clients = [
     {
-      name: "Noura Al-Saeedi",
-      role: "Digital Project Manager",
+      name: {
+        ar: "شركة عطاء البدر",
+        en: "Ataa Al-Badr Company",
+        tr: "Ataa Al-Badr Şirketi"
+      },
+      role: {
+        ar: "شريك تقني مميز",
+        en: "Distinguished Technology Partner",
+        tr: "Öne Çıkan Teknoloji Partneri"
+      },
+      image: ataa,
+      testimonial: {
+        ar: "شراكة مثمرة مع فريق محترف ومبدع في تقديم الحلول التقنية.",
+        en: "A fruitful partnership with a professional and creative team in delivering technical solutions.",
+        tr: "Teknik çözümler sunan profesyonel ve yaratıcı bir ekip ile verimli bir ortaklık."
+      }
+    },
+    {
+      name: {
+        ar: "وزارة الاتصالات والتقنية",
+        en: "Ministry of Communications and Technology",
+        tr: "İletişim ve Teknoloji Bakanlığı"
+      },
+      role: {
+        ar: "جهة حكومية رسمية",
+        en: "Official Government Entity",
+        tr: "Resmi Hükümet Kurumu"
+      },
+      image: ministryoftelecom,
+      testimonial: {
+        ar: "تنفيذ مشاريع تقنية متطورة تلبي احتياجات القطاع الحكومي.",
+        en: "Implementation of advanced technology projects that meet government sector needs.",
+        tr: "Hükümet sektörü ihtiyaçlarını karşılayan gelişmiş teknoloji projelerinin uygulanması."
+      }
+    },
+    {
+      name: {
+        ar: "ايكوم ايدج",
+        en: "Ecom Edge",
+        tr: "Ecom Edge"
+      },
+      role: {
+        ar: "شريك تجاري رقمي",
+        en: "Digital Business Partner",
+        tr: "Dijital İş Ortaklığı"
+      },
+      image: ecomedge,
+      testimonial: {
+        ar: "حلول رقمية مبتكرة ساهمت في تطوير أعمالنا بشكل كبير.",
+        en: "Innovative digital solutions that significantly contributed to developing our business.",
+        tr: "İşlerimizi geliştirmede önemli katkıda bulunan yenilikçi dijital çözümler."
+      }
+    },
+    {
+      name: {
+        ar: "نورا الساعدي",
+        en: "Noura Al-Saeedi",
+        tr: "Noura Al-Saeedi"
+      },
+      role: {
+        ar: "مدير مشاريع رقمية",
+        en: "Digital Project Manager",
+        tr: "Dijital Proje Müdürü"
+      },
       image: nouraPortrait,
-      testimonial: "One Door transformed our digital presence completely. Their expertise in project management made our vision a reality."
-    },
-    {
-      name: "Ahmed Al-Muhandis",
-      role: "Smart App Developer",
-      image: ahmedPortrait,
-      testimonial: "Working with One Door was seamless. They understood our technical requirements and delivered beyond expectations."
-    },
-    {
-      name: "Sarah Al-Johari",
-      role: "UX Designer",
-      image: sarahPortrait,
-      testimonial: "The collaboration was exceptional. One Door's attention to user experience details is remarkable."
-    },
-    {
-      name: "Abdulrahman Ahmed",
-      role: "Digital Marketing Manager",
-      image: abdulrahmanPortrait,
-      testimonial: "One Door's comprehensive approach to digital solutions helped us achieve our marketing goals effectively."
+      testimonial: {
+        ar: "أنجزت فرقهم تحولاً رقمياً كاملاً لشركتنا. خبرتهم في إدارة المشاريع جعلت رؤيتنا واقعاً.",
+        en: "One Door transformed our digital presence completely. Their expertise in project management made our vision a reality.",
+        tr: "One Door dijital varlığımızı tamamen dönüştürdü. Proje yönetimi konusundaki uzmanlıkları vizyonumuzu gerçeğe dönüştürdü."
+      }
     }
   ];
 
@@ -83,18 +134,18 @@ const ClientsSection = () => {
               <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors duration-300">
                 <img 
                   src={client.image}
-                  alt={client.name}
+                  alt={client.name.en}
                   className="w-full h-full object-cover"
                 />
               </div>
               <h4 className="text-xl font-semibold text-foreground mb-2">
-                {client.name}
+                {t('language') === 'ar' ? client.name.ar : t('language') === 'tr' ? client.name.tr : client.name.en}
               </h4>
               <p className="text-primary font-medium mb-4">
-                {client.role}
+                {t('language') === 'ar' ? client.role.ar : t('language') === 'tr' ? client.role.tr : client.role.en}
               </p>
               <p className="text-muted-foreground text-sm italic">
-                "{client.testimonial}"
+                "{t('language') === 'ar' ? client.testimonial.ar : t('language') === 'tr' ? client.testimonial.tr : client.testimonial.en}"
               </p>
             </div>
           ))}

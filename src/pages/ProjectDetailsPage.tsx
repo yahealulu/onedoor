@@ -11,6 +11,34 @@ import servicesjpg from "../assets/projects/ddos/Services.png";
 import servicesDetailsjpg from "../assets/projects/ddos/Services Details.png";
 import onboardingjpg from "../assets/projects/ddos/Onboding@3x.png";
 import reelsp2jpg from "../assets/projects/ddos/Reels p2.png";
+import cleanomain from "../assets/projects/cleano/main.png";
+import cleanohome from "../assets/projects/cleano/Home Screen.png";
+import cleano2profile from "../assets/projects/cleano/2-Profile Screen.png";
+import cleanocard from "../assets/projects/cleano/Card Screen.png";
+import cleanoframe1 from "../assets/projects/cleano/Frame 1984077913.png";
+import cleanoframe2 from "../assets/projects/cleano/Frame 1984077917 (1).png";
+import cleanoframe3 from "../assets/projects/cleano/Frame 1984077918.png";
+import cleanoframe4 from "../assets/projects/cleano/Frame 1984077920.png";
+import cleanoframe5 from "../assets/projects/cleano/Frame 1984077934.png";
+import cleanoframe6 from "../assets/projects/cleano/Frame 1984077935.png";
+import cleanoprice from "../assets/projects/cleano/Price Screen.png";
+import cleanomap from "../assets/projects/cleano/map View.png";
+// Add Syntra imports
+import syntramain from "../assets/projects/syntra/main.png";
+import syntra0 from "../assets/projects/syntra/0.png";
+import syntra1 from "../assets/projects/syntra/1.png";
+import syntra2 from "../assets/projects/syntra/2.png";
+import syntra3 from "../assets/projects/syntra/3.png";
+import syntra4 from "../assets/projects/syntra/4.png";
+import syntra5 from "../assets/projects/syntra/5.png";
+import syntra6 from "../assets/projects/syntra/6.png";
+import syntra7 from "../assets/projects/syntra/7.png";
+import syntra8 from "../assets/projects/syntra/8.png";
+import syntra9 from "../assets/projects/syntra/9.png";
+import syntra10 from "../assets/projects/syntra/10.png";
+import syntra12 from "../assets/projects/syntra/12.png";
+import syntra22 from "../assets/projects/syntra/22.png";
+import syntra2123 from "../assets/projects/syntra/2123.png";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
@@ -165,7 +193,7 @@ const ProjectDetailsPage = () => {
           "Easy to use"
         ],
         ar: [
-          "إمكانية بيع وشراء السيارات بسهولة وسرعة",
+          " 가능성 بيع وشراء السيارات بسهولة وسرعة",
           "سهولة الاستخدام"
         ],
         tr: [
@@ -237,6 +265,370 @@ const ProjectDetailsPage = () => {
         servicesjpg,
         servicesDetailsjpg
       ]
+    },
+    {
+      id: "2",
+      title: {
+        en: "Cleano Laundry Services",
+        ar: "تطبيق كلينو لخدمات الغسيل",
+        tr: "Cleano Çamaşır Yıkama Hizmetleri"
+      },
+      tagline: {
+        en: "Revolutionizing laundry and cleaning services",
+        ar: "إعادة تشكيل خدمات الغسيل والتنظيف",
+        tr: "Çamaşır ve temizlik hizmetlerini devrim yaratmak"
+      },
+      introduction: {
+        en: "Cleano offers a comprehensive solution for laundry and cleaning services, directly connecting customers with laundry shops in a seamless way, providing advanced tools for managing orders, payments, and communication between both parties.",
+        ar: "مقدمة: يقدم لكم تطبيق كلينو حلاً متكاملاً لخدمات الغسيل والتلميع، حيث يهدف إلى ربط العملاء بمحلات الغسيل بشكل مباشر وسلس، مع توفير أدوات متقدمة لإدارة الطلبات والدفع والتواصل بين الطرفين.",
+        tr: "Cleano, çamaşır ve temizlik hizmetleri için kapsamlı bir çözüm sunar. Müşterileri çamaşırhanelerle doğrudan ve sorunsuz bir şekilde bağlarken, siparişlerin, ödemelerin ve iletişimin yönetimi için gelişmiş araçlar sağlar."
+      },
+      objectives: {
+        en: [
+          "Make it easy for customers to get laundry services with just a few clicks",
+          "Save customers time and effort in searching for reliable and quality laundries",
+          "Manage orders and their execution stages clearly and effectively",
+          "Provide various and secure payment options suitable for all users",
+          "Offer special packages and promotions that increase customers' chances of saving money"
+        ],
+        ar: [
+          "تسهيل عملية حصول العملاء على خدمات الغسيل من خلال بضع نقرات",
+          "توفير الوقت والجهد على العملاء في البحث عن مغاسل موثوقة وذات جودة",
+          "إدارة الطلبات ومراحل تنفيذها بشكل واضح وفعال",
+          "تقديم خيارات دفع متنوعة وآمنة تناسب جميع المستخدمين",
+          "توفير باقات وعروض خاصة تزيد من فرص توفير المال bagi العملاء"
+        ],
+        tr: [
+          "Müşterilerin çamaşır hizmetlerini birkaç tıklamayla almasını kolaylaştırmak",
+          "Müşterilerin güvenilir ve kaliteli çamaşırhaneleri aramada zaman ve çaba kazanmasını sağlamak",
+          "Siparişleri ve uygulama aşamalarını açık ve etkili bir şekilde yönetmek",
+          "Tüm kullanıcılar için çeşitli ve güvenli ödeme seçenekleri sunmak",
+          "Müşterilerin para tasarrufu yapma şansını artıran özel paketler ve promosyonlar sunmak"
+        ]
+      },
+      userFeatures: {
+        en: [
+          "Easy registration and login",
+          "Update profile and personal information",
+          "Search for laundries and view their lists",
+          "Use filters (open now, top rated, closest to you)",
+          "View details of each laundry and the services it provides",
+          "Create new laundry orders and choose the service type",
+          "Calculate the final price of the order (includes service, delivery, and discounts)",
+          "Choose payment method (credit card, cash on delivery)",
+          "Subscribe to gold, silver, or regular packages",
+          "Track order status and communicate directly with the laundry (WhatsApp, call)"
+        ],
+        ar: [
+          "التسجيل وتسجيل الدخول بسهولة",
+          "تحديث الملف الشخصي والمعلومات الشخصية",
+          "البحث عن المغاسل وعرض قوائمها",
+          "استخدام الفلاتر (مفتوح الآن، الأعلى تقييمًا، الأقرب إليك)",
+          "عرض تفاصيل كل مغسلة والخدمات التي تقدمها",
+          "إنشاء طلبات غسيل جديدة واختيار نوع الخدمة",
+          "حساب السعر النهائي للطلب (يشمل الخدمة، التوصيل، والخصومات)",
+          "اختيار طريقة الدفع (بطاقة ائتمان، نقداً عند الاستلام)",
+          "الاشتراك في باقات ذهبية أو فضية أو عادية",
+          "متابعة حالة الطلب والتواصل مع المغسلة مباشرة (واتساب، اتصال)"
+        ],
+        tr: [
+          "Kolay kayıt ve giriş",
+          "Profil ve kişisel bilgileri güncelleme",
+          "Çamaşırhaneleri arama ve listelerini görüntüleme",
+          "Filtreleri kullanma (şimdi açık, en yüksek puanlı, size en yakın)",
+          "Her çamaşırhanenin detaylarını ve sunduğu hizmetleri görüntüleme",
+          "Yeni çamaşır siparişleri oluşturma ve hizmet türünü seçme",
+          "Siparişin nihai fiyatını hesaplama (hizmet, teslimat ve indirimleri içerir)",
+          "Ödeme yöntemi seçme (kredi kartı, kapıda ödeme)",
+          "Altın, gümüş veya normal paketlere abone olma",
+          "Sipariş durumunu takip etme ve çamaşırhaneyle doğrudan iletişim (WhatsApp, arama)"
+        ]
+      },
+      dealerFeatures: {
+        en: [
+          "View and manage current orders",
+          "Update order status (receiving, washing, ready for delivery, etc.)",
+          "View total and monthly revenue of the laundry",
+          "Manage laundry information and services provided",
+          "Add and modify services and prices",
+          "Generate and download invoices (PDF) for orders",
+          "Manage communication with customers"
+        ],
+        ar: [
+          "عرض الطلبات الحالية وإدارتها",
+          "تحديث حالة الطلب (قيد الاستلام، قيد الغسيل، جاهز للتسليم، إلخ)",
+          "عرض الإيرادات الإجمالية والشهرية للمغسلة",
+          "إدارة معلومات المغسلة والخدمات المقدمة",
+          "إضافة وتعديل الخدمات والأسعار",
+          "توليد وتحميل الفواتير (PDF) للطلبات",
+          "إدارة التواصل مع العملاء"
+        ],
+        tr: [
+          "Mevcut siparişleri görüntüleme ve yönetme",
+          "Sipariş durumunu güncelleme (teslim alma, yıkama, teslime hazır, vb.)",
+          "Çamaşırhanenin toplam ve aylık gelirlerini görüntüleme",
+          "Çamaşırhane bilgilerini ve sunulan hizmetleri yönetme",
+          "Hizmetleri ve fiyatları ekleme ve değiştirme",
+          "Siparişler için faturalar (PDF) oluşturma ve indirme",
+          "Müşterilerle iletişimi yönetme"
+        ]
+      },
+      buyerFeatures: {
+        en: [
+          "View a list of available laundries",
+          "Browse services and prices for each laundry",
+          "View ratings and reviews of laundries"
+        ],
+        ar: [
+          "عرض قائمة بالمغاسل المتاحة",
+          "استعراض الخدمات والأسعار لكل مغسلة",
+          "الاطلاع على تقييمات وتقييمات المغاسل"
+        ],
+        tr: [
+          "Mevcut çamaşırhanelerin listesini görüntüleme",
+          "Her çamaşırhanenin hizmetlerini ve fiyatlarını inceleme",
+          "Çamaşırhanelerin puanlarını ve incelemelerini görüntüleme"
+        ]
+      },
+      additions: {
+        en: [
+          "Add favorite laundries to favorites list",
+          "Locate laundry on map",
+          "Track order status step by step",
+          "Save payment data for faster experience in the future"
+        ],
+        ar: [
+          "إضافة المغاسل المفضلة إلى قائمة المفضلة",
+          "تحديد موقع المغسلة على الخريطة",
+          "تتبع حالة الطلب خطوة بخطوة",
+          "حفظ بيانات الدفع لتجربة أسرع في المستقبل"
+        ],
+        tr: [
+          "Favori çamaşırhaneleri favori listesine ekleme",
+          "Çamaşırhanenin konumunu haritada bulma",
+          "Sipariş durumunu adım adım takip etme",
+          "Gelecekte daha hızlı deneyim için ödeme verilerini kaydetme"
+        ]
+      },
+      mainFeatures: {
+        en: [
+          "Ability to request laundry service easily and quickly",
+          "Simple and easy-to-use interface",
+          "Flexible and secure payment options",
+          "Rating and review system to ensure quality"
+        ],
+        ar: [
+          "إمكانية طلب خدمة الغسيل بسهولة وسرعة",
+          "واجهة بسيطة وسهلة الاستخدام",
+          "خيارات دفع مرنة وآمنة",
+          "نظام تقييم ومراجعات لضمان الجودة"
+        ],
+        tr: [
+          "Çamaşır hizmeti talep etme kolaylığı ve hızı",
+          "Basit ve kullanımı kolay arayüz",
+          "Esnek ve güvenli ödeme seçenekleri",
+          "Kaliteyi garanti altına almak için derecelendirme ve inceleme sistemi"
+        ]
+      },
+      serviceFeatures: {
+        en: [
+          "Quick display of available services (normal wash, dry, ironing, etc.)",
+          "Display prices and details of each service",
+          "Calculate final price instantly and transparently"
+        ],
+        ar: [
+          "عرض سريع للخدمات المتاحة (غسيل عادي، جاف، كي، إلخ)",
+          "عرض الأسعار والتفاصيل الخاصة بكل خدمة",
+          "حساب السعر النهائي بشكل فوري وشفاف"
+        ],
+        tr: [
+          "Mevcut hizmetlerin hızlı görüntülenmesi (normal yıkama, kuru temizleme, ütü, vb.)",
+          "Her hizmetin fiyat ve detaylarının görüntülenmesi",
+          "Nihai fiyatın anında ve şeffaf şekilde hesaplanması"
+        ]
+      },
+      userSpecificFeatures: {
+        en: [
+          "View history of previous and current orders",
+          "View list of favorite laundries",
+          "Track order status in real time"
+        ],
+        ar: [
+          "عرض سجل الطلبات السابقة والحالية",
+          "عرض قائمة المغاسل المفضلة",
+          "تتبع حالة الطلب في الوقت الفعلي"
+        ],
+        tr: [
+          "Önceki ve mevcut siparişlerin geçmişini görüntüleme",
+          "Favori çamaşırhanelerin listesini görüntüleme",
+          "Sipariş durumunu gerçek zamanlı olarak takip etme"
+        ]
+      },
+      generalFeatures: {
+        en: [
+          "Fast performance and easy browsing",
+          "Smart search and advanced filters to find the best laundries",
+          "Accurately locate laundries via maps",
+          "Direct and fast communication channels with laundries"
+        ],
+        ar: [
+          "سرعة في الأداء وسهولة في التصفح",
+          "بحث ذكي وفلاتر متقدمة للعثور على أفضل المغاسل",
+          "تحديد مواقع المغاسل بدقة عبر الخرائط",
+          "قنوات اتصال مباشرة وسريعة مع المغاسل"
+        ],
+        tr: [
+          "Hızlı performans ve kolay gezinme",
+          "En iyi çamaşırhaneleri bulmak için akıllı arama ve gelişmiş filtreler",
+          "Çamaşırhanelerin konumlarını haritalar aracılığıyla doğru bir şekilde belirleme",
+          "Çamaşırhanelerle doğrudan ve hızlı iletişim kanalları"
+        ]
+      },
+      images: [
+        cleanomain,
+        cleanohome,
+        cleano2profile,
+        cleanocard,
+        cleanoprice,
+        cleanomap,
+        cleanoframe1,
+        cleanoframe2,
+        cleanoframe3,
+        cleanoframe4,
+        cleanoframe5,
+        cleanoframe6
+      ]
+    },
+    {
+      id: "3",
+      title: {
+        en: "Syntra Business Management System",
+        ar: "نظام سِنترا لإدارة الشركات",
+        tr: "Syntra Kurumsal Yönetim Sistemi"
+      },
+      tagline: {
+        en: "Integrated solution for business management",
+        ar: "حل متكامل لإدارة الشركات والمؤسسات",
+        tr: "Kurumsal yönetim için entegre çözüm"
+      },
+      introduction: {
+        en: "Syntra offers a comprehensive solution for business and enterprise management, aiming to integrate all business and administrative processes into a unified system that ensures efficiency, accuracy, and complete control over all aspects of work.",
+        ar: "يقدم لكم نظام سِنترا (Syntra) حلاً متكاملاً لإدارة الشركات والمؤسسات، حيث يهدف إلى دمج جميع العمليات التجارية والإدارية في نظام موحد يضمن الكفاءة، الدقة، والتحكم الكامل في كافة جوانب العمل.",
+        tr: "Syntra, kurumsal ve işletme yönetimi için kapsamlı bir çözüm sunar. Tüm ticari ve idari süreçleri verimlilik, doğruluk ve işin tüm yönleri üzerinde tam kontrol sağlayan birleşik bir sisteme entegre etmeyi amaçlar."
+      },
+      objectives: {
+        en: [
+          "Centralize management of all company processes on a single platform",
+          "Simplify business processes and financial transactions",
+          "Provide accurate and live data for informed administrative decisions",
+          "Enhance communication and collaboration between different departments",
+          "Achieve integration between sales, purchases, inventory, and human resources"
+        ],
+        ar: [
+          "مركزة إدارة كافة عمليات الشركة في منصة واحدة",
+          "تبسيط العمليات التجارية والمعاملات المالية",
+          "توفير بيانات دقيقة وحية لاتخاذ القرارات الإدارية المستنيرة",
+          "تعزيز التواصل والتعاون بين الإدارات المختلفة",
+          "تحقيق التكامل بين المبيعات، المشتريات، المخزون، والموارد البشرية"
+        ],
+        tr: [
+          "Tüm şirket süreçlerini tek bir platformda merkezileştirme",
+          "İş süreçlerini ve finansal işlemleri basitleştirme",
+          "Bilinçli idari kararlar almak için doğru ve canlı veri sağlama",
+          "Farklı departmanlar arasında iletişimi ve işbirliğini geliştirme",
+          "Satışlar, satın almalar, envanter ve insan kaynakları arasında entegrasyon sağlama"
+        ]
+      },
+      mainFeatures: {
+        en: [
+          "Centralization: A unified system that connects all company departments",
+          "Flexibility: Customizable to suit different business needs",
+          "Accuracy: Reduces human errors in calculations and data entry",
+          "Integration: Seamless integration between all units to create a cohesive workflow",
+          "Security: Protects company and customer data through precise user permissions",
+          "Real-time Support: Instant notifications keep everyone informed"
+        ],
+        ar: [
+          "المركزية: نظام موحد يربط جميع إدارات الشركة",
+          "المرونة: قابل للتخصيص ليناسب احتياجات العمل المختلفة",
+          "الدقة: يقلل من الأخطاء البشرية في العمليات الحسابية وإدخال البيانات",
+          "التكامل: تكامل سلس بين جميع الوحدات لخلق تدفق عمل متجانس",
+          "الأمان: حماية بيانات الشركة والعميل من خلال صلاحيات مستخدمين دقيقة",
+          "الدعم اللحظي: إشعارات فورية تبقي الجميع على اطلاع دائم"
+        ],
+        tr: [
+          "Merkezileştirme: Tüm şirket bölümlerini bağlayan birleşik bir sistem",
+          "Esneklik: Farklı iş ihtiyaçlarına uyacak şekilde özelleştirilebilir",
+          "Doğruluk: Hesaplama ve veri girişindeki insan hatalarını azaltır",
+          "Entegrasyon: Tutarsız bir iş akışı yaratmak için tüm birimler arasında sorunsuz entegrasyon",
+          "Güvenlik: Kesin kullanıcı izinleri aracılığıyla şirket ve müşteri verilerini korur",
+          "Gerçek zamanlı destek: Anlık bildirimler herkesi bilgilendirir"
+        ]
+      },
+      modules: {
+        en: [
+          "CRM Service: Complete customer relationship management, from following up potential customers to converting them into permanent customers, with a complete record of interactions and transactions",
+          "Product & Inventory Service: Complete control over products, tracking inventory levels, and managing the movement of goods (in and out) to avoid shortages or overstocking",
+          "Order Service: Following the entire order journey, from receiving it from the customer, to preparing it, shipping it, and delivering it finally",
+          "Rent Service: Managing rental contracts and processes for products or equipment, in terms of following rental duration, status, and revenues",
+          "Refund Service: Processing product return requests and customer refunds in an organized and clear manner",
+          "Invoice Service: Creating and generating electronic invoices for customers instantly and organized, with the ability to track payment status",
+          "Safe Service: Recording and tracking all cash financial transactions in the company, from revenues and expenses, to maintain treasury balance",
+          "Delivery Service: Coordinating and organizing order delivery processes to customers, and following up on shipping status until delivery is completed",
+          "Report Service: Providing a comprehensive set of analytical reports on sales, performance, finance, and inventory to support the decision-making process",
+          "HR Service: Managing employee affairs in terms of personal data, salaries, vacations, and performance evaluation",
+          "Auth Service: Ensuring system security through user permission management and granting them different access permissions according to their roles",
+          "Payment Service: Integrating and facilitating the process of collecting payments from customers through multiple channels, and following up on payment status",
+          "Telegram Service: Sending instant notifications to users or management about important events in the system (such as new orders, inventory alerts) via Telegram"
+        ],
+        ar: [
+          "وحدة العملاء (CRM Service): إدارة علاقات العملاء بشكل كامل، من متابعة العملاء المحتملين إلى تحويلهم لعملاء دائمين، مع حفظ سجل كامل للتفاعلات والمعاملات",
+          "وحدة إدارة المنتجات والمخزون (Product & Inventory Service): التحكم الكامل في المنتجات، ومتابعة مستويات المخزون، وإدارة حركة البضائع (دخولاً وخروجاً) لتجنب النفاد أو التكدس",
+          "وحدة إدارة الطلبات (Order Service): متابعة رحلة الطلب بالكامل، من استلامه من العميل، إلى تحضيره، وشحنه، وحتى تسليمه النهائي",
+          "وحدة التأجير (Rent Service): إدارة عقود وعمليات تأجير المنتجات أو المعدات، من حيث متابعة مدة التأجير، الحالة، والإيرادات",
+          "وحدة المرتجعات والمبالغ المستردة (Refund Service): معالجة طلبات إرجاع المنتجات واسترداد الأموال للعملاء بشكل منظم وواضح",
+          "وحدة الفواتير (Invoice Service): إنشاء وتوليد الفواتير الإلكترونية للعملاء بشكل فوري ومنظم، مع إمكانية تتبع حالة الدفع",
+          "وحدة الخزينة (Safe Service): تسجيل ومتابعة جميع الحركة المالية النقدية في الشركة، من إيرادات ومصروفات، للحفاظ على توازن الخزينة",
+          "وحدة التوصيل (Delivery Service): تنسيق وتنظيم عمليات تسليم الطلبات للعملاء، ومتابعة حالة الشحن حتى اكتمال التسليم",
+          "وحدة التقارير (Report Service): توفير مجموعة شاملة من التقارير التحليلية عن المبيعات، الأداء، المالية، والمخزون لدعم عملية اتخاذ القرار",
+          "وحدة الموارد البشرية (HR Service): إدارة شؤون الموظفين من حيث البيانات الشخصية، الرواتب، الإجازات، وتقييم الأداء",
+          "وحدة الأمان والمصادقة (Auth Service): ضمان أمان النظام من خلال إدارة صلاحيات المستخدمين ومنحهم صلاحيات دخول مختلفة تتناسب مع أدوارهم",
+          "وحدة الدفع (Payment Service): دمج وتسهيل عمليات تحصيل المدفوعات من العملاء عبر قنوات متعددة، ومتابعة حالة المدفوعات",
+          "وحدة التليجرام (Telegram Service): إرسال إشعارات فورية للمستخدمين أو الإدارة حول الأحداث الهامة في النظام (مثل طلبات جديدة، تنبيهات المخزون) عبر Telegram"
+        ],
+        tr: [
+          "CRM Hizmeti: Potansiyel müşterilerin takibinden kalıcı müşterilere dönüştürmeye kadar eksiksiz müşteri ilişkileri yönetimi, etkileşimlerin ve işlemlerin eksiksiz kaydıyla",
+          "Ürün ve Envanter Hizmeti: Ürünlere tam kontrol, envanter seviyelerini takip etme ve mal hareketlerini (giriş ve çıkış) eksiklik veya fazlalıktan kaçınmak için yönetme",
+          "Sipariş Hizmeti: Müşteriden alınan siparişin hazırlanmasından, sevkiyatına kadar tüm sipariş yolculuğunu takip etme ve nihayetinde teslim etme",
+          "Kiralama Hizmeti: Ürün veya ekipman kiralama sözleşmelerini ve işlemlerini, kiralama süresini, durumunu ve gelirleri takip etme açısından yönetme",
+          "İade Hizmeti: Ürün iade taleplerini ve müşteri iadelerini düzenli ve net bir şekilde işleme",
+          "Fatura Hizmeti: Anında ve organize şekilde müşteriler için elektronik faturalar oluşturma ve üretme, ödeme durumunu takip etme yeteneğiyle",
+          "Kasa Hizmeti: Gelirler ve giderlerden kasadaki dengeyi korumak için şirketteki tüm nakit finansal işlemleri kaydetme ve takip etme",
+          "Teslimat Hizmeti: Müşterilere sipariş teslimat süreçlerini koordine etme ve düzenleme, ve teslimat tamamlanana kadar sevkiyat durumunu takip etme",
+          "Rapor Hizmeti: Karar verme sürecini desteklemek için satışlar, performans, finans ve envanter hakkında kapsamlı bir analitik rapor seti sağlama",
+          "İK Hizmeti: Kişisel veriler, maaşlar, tatiller ve performans değerlendirmesi açısından çalışan işlerini yönetme",
+          "Yetkilendirme Hizmeti: Kullanıcı izin yönetimi aracılığıyla sistem güvenliğini sağlama ve onlara rollerine göre farklı erişim izinleri verme",
+          "Ödeme Hizmeti: Müşterilerden çoklu kanallar aracılığıyla ödeme toplama sürecini entegre etme ve kolaylaştırma, ve ödeme durumunu takip etme",
+          "Telegram Hizmeti: Telegram aracılığıyla sistemdeki önemli olaylar (yeni siparişler, envanter uyarıları gibi) hakkında kullanıcılara veya yönetime anlık bildirimler gönderme"
+        ]
+      },
+      images: [
+        syntramain,
+        syntra0,
+        syntra1,
+        syntra2,
+        syntra3,
+        syntra4,
+        syntra5,
+        syntra6,
+        syntra7,
+        syntra8,
+        syntra9,
+        syntra10,
+        syntra12,
+        syntra22,
+        syntra2123
+      ]
     }
   ];
 
@@ -292,58 +684,123 @@ const ProjectDetailsPage = () => {
     imagePairs.push(project.images.slice(i, i + 2));
   }
 
-  // Content sections data
+  // Content sections data - Updated to handle all projects properly
   const contentSections = [
     {
       title: language === 'ar' ? 'مقدمة' : language === 'tr' ? 'Giriş' : 'Introduction',
       content: language === 'ar' ? project.introduction.ar : language === 'tr' ? project.introduction.tr : project.introduction.en
     },
     {
-      title: language === 'ar' ? 'أهداف التطبيق' : language === 'tr' ? 'Uygulama Hedefleri' : 'Application Objectives',
+      title: language === 'ar' ? 'أهداف النظام' : language === 'tr' ? 'Sistem Hedefleri' : 'System Objectives',
       content: language === 'ar' ? project.objectives.ar : language === 'tr' ? project.objectives.tr : project.objectives.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'خصائص المستخدمين' : language === 'tr' ? 'Kullanıcı Özellikleri' : 'User Features',
-      content: language === 'ar' ? project.userFeatures.ar : language === 'tr' ? project.userFeatures.tr : project.userFeatures.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'محتويات صفحة بائع التطبيق Dealer' : language === 'tr' ? 'Bayi Uygulama Sayfası İçeriği' : 'Dealer Application Page Contents',
-      content: language === 'ar' ? project.dealerFeatures.ar : language === 'tr' ? project.dealerFeatures.tr : project.dealerFeatures.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'خصائص المستخدمين (المشترين)' : language === 'tr' ? 'Alıcı Özellikleri' : 'Buyer Features',
-      content: language === 'ar' ? project.buyerFeatures.ar : language === 'tr' ? project.buyerFeatures.tr : project.buyerFeatures.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'الإضافات' : language === 'tr' ? 'Eklemeler' : 'Additions',
-      content: language === 'ar' ? project.additions.ar : language === 'tr' ? project.additions.tr : project.additions.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'أهم المميزات' : language === 'tr' ? 'Ana Özellikler' : 'Main Features',
-      content: language === 'ar' ? project.mainFeatures.ar : language === 'tr' ? project.mainFeatures.tr : project.mainFeatures.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'الميزات الخاصة بالسيارات Reels' : language === 'tr' ? 'Reels Araç Özellikleri' : 'Reels Car Features',
-      content: language === 'ar' ? project.reelsFeatures.ar : language === 'tr' ? project.reelsFeatures.tr : project.reelsFeatures.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'الميزات الخاصة بالمستخدمين' : language === 'tr' ? 'Kullanıcıya Özel Özellikler' : 'User Specific Features',
-      content: language === 'ar' ? project.userSpecificFeatures.ar : language === 'tr' ? project.userSpecificFeatures.tr : project.userSpecificFeatures.en,
-      isList: true
-    },
-    {
-      title: language === 'ar' ? 'الخصائص العامة' : language === 'tr' ? 'Genel Özellikler' : 'General Features',
-      content: language === 'ar' ? project.generalFeatures.ar : language === 'tr' ? project.generalFeatures.tr : project.generalFeatures.en,
       isList: true
     }
   ];
+
+  // Add project-specific sections
+  if (project.id === "1") {
+    // Doooss project sections
+    contentSections.push(
+      {
+        title: language === 'ar' ? 'خصائص المستخدمين' : language === 'tr' ? 'Kullanıcı Özellikleri' : 'User Features',
+        content: language === 'ar' ? project.userFeatures.ar : language === 'tr' ? project.userFeatures.tr : project.userFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'محتويات صفحة بائع التطبيق Dealer' : language === 'tr' ? 'Bayi Uygulama Sayfası İçeriği' : 'Dealer Application Page Contents',
+        content: language === 'ar' ? project.dealerFeatures.ar : language === 'tr' ? project.dealerFeatures.tr : project.dealerFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'خصائص المستخدمين (المشترين)' : language === 'tr' ? 'Alıcı Özellikleri' : 'Buyer Features',
+        content: language === 'ar' ? project.buyerFeatures.ar : language === 'tr' ? project.buyerFeatures.tr : project.buyerFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الإضافات' : language === 'tr' ? 'Eklemeler' : 'Additions',
+        content: language === 'ar' ? project.additions.ar : language === 'tr' ? project.additions.tr : project.additions.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'أهم المميزات' : language === 'tr' ? 'Ana Özellikler' : 'Main Features',
+        content: language === 'ar' ? project.mainFeatures.ar : language === 'tr' ? project.mainFeatures.tr : project.mainFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الميزات الخاصة بالسيارات Reels' : language === 'tr' ? 'Reels Araç Özellikleri' : 'Reels Car Features',
+        content: language === 'ar' ? project.reelsFeatures.ar : language === 'tr' ? project.reelsFeatures.tr : project.reelsFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الميزات الخاصة بالمستخدمين' : language === 'tr' ? 'Kullanıcıya Özel Özellikler' : 'User Specific Features',
+        content: language === 'ar' ? project.userSpecificFeatures.ar : language === 'tr' ? project.userSpecificFeatures.tr : project.userSpecificFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الخصائص العامة' : language === 'tr' ? 'Genel Özellikler' : 'General Features',
+        content: language === 'ar' ? project.generalFeatures.ar : language === 'tr' ? project.generalFeatures.tr : project.generalFeatures.en,
+        isList: true
+      }
+    );
+  } else if (project.id === "2") {
+    // Cleano project sections
+    contentSections.push(
+      {
+        title: language === 'ar' ? 'خصائص المستخدمين' : language === 'tr' ? 'Kullanıcı Özellikleri' : 'User Features',
+        content: language === 'ar' ? project.userFeatures.ar : language === 'tr' ? project.userFeatures.tr : project.userFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'محتويات صفحة بائع التطبيق Dealer' : language === 'tr' ? 'Bayi Uygulama Sayfası İçeriği' : 'Dealer Application Page Contents',
+        content: language === 'ar' ? project.dealerFeatures.ar : language === 'tr' ? project.dealerFeatures.tr : project.dealerFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'خصائص المستخدمين (المشترين)' : language === 'tr' ? 'Alıcı Özellikleri' : 'Buyer Features',
+        content: language === 'ar' ? project.buyerFeatures.ar : language === 'tr' ? project.buyerFeatures.tr : project.buyerFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الإضافات' : language === 'tr' ? 'Eklemeler' : 'Additions',
+        content: language === 'ar' ? project.additions.ar : language === 'tr' ? project.additions.tr : project.additions.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'أهم المميزات' : language === 'tr' ? 'Ana Özellikler' : 'Main Features',
+        content: language === 'ar' ? project.mainFeatures.ar : language === 'tr' ? project.mainFeatures.tr : project.mainFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الميزات الخاصة بالخدمات' : language === 'tr' ? 'Hizmet Özellikleri' : 'Service Features',
+        content: language === 'ar' ? project.serviceFeatures.ar : language === 'tr' ? project.serviceFeatures.tr : project.serviceFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الميزات الخاصة بالمستخدمين' : language === 'tr' ? 'Kullanıcıya Özel Özellikleri' : 'User Specific Features',
+        content: language === 'ar' ? project.userSpecificFeatures.ar : language === 'tr' ? project.userSpecificFeatures.tr : project.userSpecificFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الخصائص العامة' : language === 'tr' ? 'Genel Özellikler' : 'General Features',
+        content: language === 'ar' ? project.generalFeatures.ar : language === 'tr' ? project.generalFeatures.tr : project.generalFeatures.en,
+        isList: true
+      }
+    );
+  } else if (project.id === "3") {
+    // Syntra project sections
+    contentSections.push(
+      {
+        title: language === 'ar' ? 'الخصائص العامة للنظام' : language === 'tr' ? 'Sistem Genel Özellikleri' : 'System General Features',
+        content: language === 'ar' ? project.mainFeatures.ar : language === 'tr' ? project.mainFeatures.tr : project.mainFeatures.en,
+        isList: true
+      },
+      {
+        title: language === 'ar' ? 'الوحدات الرئيسية في النظام' : language === 'tr' ? 'Sistemdeki Ana Modüller' : 'Main System Modules',
+        content: language === 'ar' ? project.modules.ar : language === 'tr' ? project.modules.tr : project.modules.en,
+        isList: true
+      }
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
@@ -472,7 +929,7 @@ const ProjectDetailsPage = () => {
             >
               <h2 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-3">
                 <div className="w-4 h-4 bg-primary rounded-full"></div>
-                {language === 'ar' ? 'أهداف التطبيق' : language === 'tr' ? 'Uygulama Hedefleri' : 'Application Objectives'}
+                {language === 'ar' ? 'الأهداف' : language === 'tr' ? 'Hedefler' : 'Objectives'}
               </h2>
               <ul className="space-y-4">
                 {(language === 'ar' ? project.objectives.ar : language === 'tr' ? project.objectives.tr : project.objectives.en).map((objective, idx) => (

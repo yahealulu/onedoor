@@ -9,6 +9,7 @@ import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import ClientsSection from '../components/ClientsSection';
 import IndustriesSection from '../components/IndustriesSection';
+import StuffSection from '../components/StuffSection';
 import AchievementsSection from '../components/AchievementsSection';
 import ContactSection from '../components/ContactSection';
 import ActivitiesSection from '../components/ActivitiesSection';
@@ -87,6 +88,7 @@ const Index = () => {
           <ServicesSection />
           <ClientsSection />
           <IndustriesSection />
+          <StuffSection />
           <AchievementsSection />
           <TestimonialsSection />
           <motion.div

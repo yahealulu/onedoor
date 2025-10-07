@@ -34,7 +34,7 @@
       "title": "Our Global Presence",
       "syria": "Syria",
       "turkey": "Turkey",
-      "syria_address1": "Damascus - Kafr Souseh",
+      "syria_address1": "Damascus - Kafr Sousa",
       "syria_address2": "Aleppo - Opposite Sheraton Hotel",
       "turkey_address1": "Istanbul - Business District",
       "turkey_address2": "Ankara - Technology City",
@@ -43,13 +43,15 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Comprehensive digital solutions tailored to your needs",
+    "subtitle": "Comprehensive solutions designed to meet your business needs",
+    "mobile": "Mobile App Development",
+    "mobile_desc": "Native, modern, and Arabic-first applications for iOS and Android",
     "web": "Web Development",
-    "web_desc": "Modern, responsive websites and applications built with the latest technologies",
-    "mobile": "Mobile Apps",
-    "mobile_desc": "Native and cross-platform multi-device applications for iOS and Android",
-    "backend": "Backend Systems",
-    "backend_desc": "Scalable server-side solutions and API development",
+    "web_desc": "Dynamic, modern, and responsive websites",
+    "ui_ux": "UI/UX Design",
+    "ui_ux_desc": "Attractive and user-friendly designs focused on the user",
+    "ecommerce": "E-commerce",
+    "ecommerce_desc": "Complete shopping platforms with secure payment",
     "cloud": "Cloud Solutions",
     "cloud_desc": "Cloud infrastructure and deployment strategies",
     "security": "Cybersecurity",
@@ -63,7 +65,7 @@
     "get_started": "Get Started"
   },
   "clients": {
-    "title": "Our Valued Clients",
+    "title": "Our Distinguished Clients",
     "subtitle": "Trusted by industry leaders across various sectors"
   },
   "industries": {
@@ -120,59 +122,21 @@
     "message_placeholder": "Tell us about your project..."
   },
   "footer": {
-    "description": "One Door is a leading software company delivering innovative digital solutions that transform businesses.",
+    "description": "One Door is a leading software company providing innovative digital solutions that transform businesses.",
     "services": "Services",
     "company": "Company",
-    "contact": "Contact",
+    "contact": "Contact Us",
     "rights": "All rights reserved.",
     "privacy_policy": "Privacy Policy",
     "terms_of_use": "Terms of Use",
-    "syria_address1": "Syria - Damascus - Kafr Souseh",
+    "syria_address1": "Syria - Damascus - Kafr Sousa",
     "syria_address2": "Syria - Aleppo - Opposite Sheraton Hotel",
     "phone1": "00963969697088",
     "phone2": "00963930342875",
     "phone3": "00963990486277",
     "phone4": "00963 995 550 310",
-    "success_stories": "Success stories begin with the right partner.",
+    "success_stories": "Successful stories begin with the right partner.",
     "technology": "Technology is closer and easier than you imagine.",
-    "together": "Together, we build digital success stories that inspire.",
-    "building_digital": "Building digital success stories."
-  },
-  "activities": {
-    "title": "Our Activities",
-    "subtitle": "Stay updated with our latest events and news",
-    "sylicon_summit": {
-      "title": "SYLICON Summit - Aleppo",
-      "date": "July 31 - August 2, 2025",
-      "location": "Sheraton Hotel, Aleppo",
-      "content1": "From July 31st to August 2nd, 2025, One Door proudly participated in the SYLICON Technology Summit, held at the Sheraton Hotel in Aleppo. Our booth opened the door to the future, showcasing the true meaning of technological creativity. Visitors experienced innovative digital solutions, opportunities for career growth, and the potential for strategic partnerships.",
-      "content2": "At the exhibition, we presented intelligent applications powered by artificial intelligence - solutions that don't just solve problems, but learn, adapt, and grow with users. The event was an inspiring opportunity to connect with the tech community, exchange ideas, and highlight our vision for digital transformation in Syria and beyond."
-    },
-    "damascus_fair": {
-      "title": "Damascus International Fair - 62nd Edition",
-      "date": "August 27 - September 5, 2025",
-      "location": "Damascus Fairgrounds",
-      "content": "From August 27th to September 5th, 2025, One Door participated in the 62nd Damascus International Fair at the Damascus Fairgrounds. Our presence highlighted the latest innovations in artificial intelligence and digital technology. Visitors discovered how One Door is redefining programming through smart, adaptive solutions that leave a unique mark in the AI and tech industry."
-    },
-    "telecom_meeting": {
-      "title": "Strategic Meeting with Syrian Telecommunications Company",
-      "date": "During Damascus Fair",
-      "content": "As part of Syria's path towards modernization and digital transformation, One Door's General Manager, Eng. Mohammad Al-Mohammad, held a productive meeting with Mr. Ghassan Akkash, General Manager of the Syrian Telecommunications Company. The meeting focused on strengthening cooperation and supporting the work of ministries and institutions with advanced digital solutions. Both sides agreed on practical steps, paving the way for a more connected, efficient, and prosperous Syria."
-    },
-    "saudi_companies": {
-      "title": "Engagement with Saudi Companies",
-      "date": "During Damascus Fair",
-      "content": "During its participation in the Damascus International Fair, One Door toured the Saudi companies present at the exhibition. The visit provided an opportunity to introduce One Door's vision, expand partnerships, and exchange expertise with leading companies. This reflects our commitment to building strong regional connections and fostering collaboration for mutual growth."
-    },
-    "official_visit": {
-      "title": "Official Visit by Organizing Committee",
-      "date": "During Damascus Fair",
-      "content": "The organizing committee and the general management of the Damascus International Fair and Exhibition City paid an official visit to One Door's booth. The visit highlighted One Door's role in showcasing AI and digital technology solutions and reflected the appreciation of the organizers for our active participation in this landmark national event."
-    },
-    "mou_innovation": {
-      "title": "MoU with the National Authority for Innovation",
-      "date": "During Damascus Fair",
-      "content": "In a landmark step towards building a digital Syria, One Door Software Company, represented by its General Manager, Eng. Mohammad Al-Mohammad, signed a Memorandum of Understanding (MoU) with the National Authority for Innovation, represented by its Executive Director, Eng. Mohammad Aboudan. The agreement aims to collaborate on digital transformation projects and initiatives, supporting governmental and social digitization and placing Syria firmly on the path toward a promising digital future."
-    }
+    "together": "Together, we build inspiring digital success stories."
   }
 }

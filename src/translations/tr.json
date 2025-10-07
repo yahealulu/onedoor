@@ -24,32 +24,34 @@
       "vision_desc": "Dünya çapında dijital dönüşümün lideri olmak, yenilikçi çözümlerimiz, olağanüstü hizmetimiz ve müşterilerimizle uzun vadeli ortaklıklar kurma taahhüdümüzle tanınmak.",
       "core_values": "Temel Değerlerimiz",
       "innovation": "İnovasyon",
-      "innovation_desc": "Yenilikçi çözümler sunarak sınırları sürekli zorluyoruz.",
+      "innovation_desc": "Yenilikçi çözümler sunmak için sürekli sınırları zorluyoruz.",
       "integrity": "Dürüstlük",
       "integrity_desc": "Şeffaf ve etik uygulamalar aracılığıyla güven oluşturuyoruz.",
       "excellence": "Mükemmellik",
-      "excellence_desc": "Gerçekleştirdiğimiz her projede mükemmelliği hedefliyoruz."
+      "excellence_desc": "Üstlendiğimiz her projede mükemmelliğe ulaşmak için çalışıyoruz."
     },
     "locations": {
       "title": "Küresel Varlığımız",
       "syria": "Suriye",
       "turkey": "Türkiye",
-      "syria_address1": "Şam - Kafr Suseh",
-      "syria_address2": "Aleppo - Sheraton Hotel Karşısı",
-      "turkey_address1": "İstanbul - Ticaret Bölgesi",
+      "syria_address1": "Şam - Kafr Sousa",
+      "syria_address2": " Halep - Sheraton Otel Karşısı",
+      "turkey_address1": "İstanbul - İş Bölgesi",
       "turkey_address2": "Ankara - Teknoloji Şehri",
-      "description": "Orta Doğu ve Avrupa boyunca uzanan ofislerimizle, her projeye yerel uzmanlığı küresel yeteneklerle birleştiriyoruz."
+      "description": "Orta Doğu ve Avrupa genelinde uzanan ofislerimizle her projeye yerel uzmanlığı küresel yeteneklerle birleştiriyoruz."
     }
   },
   "services": {
     "title": "Hizmetlerimiz",
-    "subtitle": "İhtiyaçlarınıza özel kapsamlı dijital çözümler",
+    "subtitle": "İş ihtiyaçlarınızı karşılamak için özel olarak tasarlanmış kapsamlı çözümler",
+    "mobile": "Mobil Uygulama Geliştirme",
+    "mobile_desc": "iOS ve Android için yerel, modern ve Arapça öncelikli uygulamalar",
     "web": "Web Geliştirme",
-    "web_desc": "Modern, duyarlı web siteleri ve en son teknolojilerle oluşturulmuş uygulamalar",
-    "mobile": "Mobil Uygulamalar",
-    "mobile_desc": "iOS ve Android için yerel ve çapraz platform çoklu cihaz uygulamaları",
-    "backend": "Arka Uç Sistemleri",
-    "backend_desc": "Ölçeklenebilir sunucu tarafı çözümleri ve API geliştirme",
+    "web_desc": "Dinamik, modern ve duyarlı web siteleri",
+    "ui_ux": "UI/UX Tasarımı",
+    "ui_ux_desc": "Kullanıcıya odaklanan çekici ve kullanıcı dostu tasarımlar",
+    "ecommerce": "E-ticaret",
+    "ecommerce_desc": "Güvenli ödeme ile eksiksiz alışveriş platformları",
     "cloud": "Bulut Çözümleri",
     "cloud_desc": "Bulut altyapısı ve dağıtım stratejileri",
     "security": "Siber Güvenlik",
@@ -60,23 +62,23 @@
     "ai_desc": "Yapay zeka destekli akıllı çözümler",
     "what_we_create": "Ne Yaratıyoruz",
     "what_we_create_desc": "Konseptten dağıtıma kadar, işletmenizi ileriye taşıyan kapsamlı dijital çözümler sunuyoruz.",
-    "get_started": "Şimdi Başlayın"
+    "get_started": "Başlayın"
   },
   "clients": {
-    "title": "Değerli Müşterilerimiz",
+    "title": "Öne Çıkan Müşterilerimiz",
     "subtitle": "Çeşitli sektörlerdeki endüstri liderleri tarafından güveniliyor"
   },
   "industries": {
     "title": "Hizmet Verdiğimiz Sektörler",
-    "subtitle": "Uzmanlığımız birçok sektörde uzanıyor, özelleştirilmiş dijital çözümler sunuyoruz",
+    "subtitle": "Uzmanlığımız birçok sektörde yayılmış durumda ve özel dijital çözümler sunuyoruz",
     "list": "Sektör Listesi",
     "details": "Sektör Detayları",
     "capabilities": "Yetenekler",
     "specifications": "Sektör Özellikleri Alınıyor...",
-    "epayments": "E-Ödeme ve Bankacılık: Dijital ödeme çözümleri, mobil bankacılık platformları",
+    "epayments": "E-ödemeler ve Bankacılık: Dijital ödeme çözümleri, mobil bankacılık platformları",
     "healthcare": "Sağlık: Telemedisin platformları, hasta yönetim sistemleri",
-    "ecommerce": "E-Ticaret: Çevrimiçi pazarlar, ödeme entegrasyonu",
-    "telecom": "Telekomünikasyon: Ağ yönetimi, müşteri portalı",
+    "ecommerce": "E-ticaret: Çevrimiçi pazarlar, ödeme entegrasyonu",
+    "telecom": "Telekom: Ağ yönetimi, müşteri portalı",
     "analyzing": "Sektörler Arası Uzmanlık Analiz Ediliyor...",
     "security": "Güvenlik ve Uyumluluk",
     "scalability": "Ölçeklenebilirlik ve Performans",
@@ -85,15 +87,15 @@
   },
   "achievements": {
     "title": "Başarılarımız",
-    "subtitle": "Mükemmelliğimizin yolunu tanımlayan kilometre taşları",
-    "years": "Yıllık Deneyim",
+    "subtitle": "Mükemmellik yolculuğumuzu tanımlayan kilometre taşları",
+    "years": "Yılın Deneyimi",
     "clients": "Memnun Müşteriler",
     "projects": "Teslim Edilen Projeler",
     "downloads": "İndirmeler"
   },
   "testimonials": {
     "title": "Müşteri Görüşleri",
-    "subtitle": "Müşterilerimiz bizim hakkımızda ne diyor",
+    "subtitle": "Müşterilerimiz işlerimiz hakkında ne diyor",
     "techcorp": "Gelişmiş Teknoloji Şirketi",
     "e_store_plus": "E-Mağaza Artı",
     "digital_market": "Dijital Pazar",
@@ -106,8 +108,8 @@
   "contact": {
     "title": "Bize Ulaşın",
     "subtitle": "Dijital dönüşüm yolculuğunuza başlamaya hazır mısınız? Bugün bizimle iletişime geçin.",
-    "whatsapp": "WhatsApp ile mesaj gönderin",
-    "locations": "Konumlarımız",
+    "whatsapp": "Bize WhatsApp'tan mesaj atın",
+    "locations": "Lokasyonlarımız",
     "phone_numbers": "Telefon Numaraları",
     "send_message": "Bize Mesaj Gönderin",
     "first_name": "Ad",
@@ -116,63 +118,25 @@
     "message": "Mesaj",
     "first_name_placeholder": "Adınız",
     "last_name_placeholder": "Soyadınız",
-    "email_placeholder": "your.email@example.com",
-    "message_placeholder": "Projeleriniz hakkında bize bilgi verin..."
+    "email_placeholder": "eposta@example.com",
+    "message_placeholder": "Bize projenizden bahsedin..."
   },
   "footer": {
     "description": "One Door, işletmeleri dönüştüren yenilikçi dijital çözümler sunan lider bir yazılım şirketidir.",
     "services": "Hizmetler",
     "company": "Şirket",
-    "contact": "İletişim",
+    "contact": "Bize Ulaşın",
     "rights": "Tüm hakları saklıdır.",
     "privacy_policy": "Gizlilik Politikası",
     "terms_of_use": "Kullanım Şartları",
-    "syria_address1": "Suriye - Şam - Kafr Suseh",
-    "syria_address2": "Suriye - Aleppo - Sheraton Hotel Karşısı",
+    "syria_address1": "Suriye - Şam - Kafr Sousa",
+    "syria_address2": "Suriye - Halep - Sheraton Otel Karşısı",
     "phone1": "00963969697088",
     "phone2": "00963930342875",
     "phone3": "00963990486277",
     "phone4": "00963 995 550 310",
     "success_stories": "Başarılı hikayeler doğru ortakla başlar.",
     "technology": "Teknoloji hayal ettiğinizden daha yakın ve kolay.",
-    "together": "Birlikte ilham verici dijital başarı hikayeleri inşa ediyoruz.",
-    "building_digital": "Dijital başarı hikayeleri inşa ediyoruz."
-  },
-  "activities": {
-    "title": "Aktivitelerimiz",
-    "subtitle": "En son etkinliklerimiz ve haberlerimizden haberdar olun",
-    "sylicon_summit": {
-      "title": "Silikon Zirvesi - Aleppo",
-      "date": "31 Temmuz - 2 Ağustos 2025",
-      "location": "Sheraton Hotel, Aleppo",
-      "content1": "31 Temmuz - 2 Ağustos 2025 tarihlerinde, One Door şirketi Aleppo'da Sheraton Hotel'de düzenlenen Silikon Teknoloji Zirvesi'ne katıldı. Kafeterya, geleceği açtı, teknolojik yaratıcılığın gerçek anlamını sergiledi. Ziyaretçiler, yenilikçi dijital çözümler, profesyonel gelişim fırsatları ve stratejik ortaklık potansiyeliyle tanıştı.",
-      "content2": "Fuarda, kullanıcılarla birlikte öğrenen, uyum sağlayan ve büyüyen yapay zeka destekli akıllı uygulamalar sunduk - sadece sorunları çözmekle kalmayan, aynı zamanda kullanıcılarla birlikte öğrenen, uyum sağlayan ve büyüyen çözümler. Etkinlik, teknoloji topluluğuyla bağlantı kurmak, fikir alışverişinde bulunmak ve Suriye ve ötesinde dijital dönüşüm vizyonumuzu sergilemek için ilham verici bir fırsattı."
-    },
-    "damascus_fair": {
-      "title": "Uluslararası Şam Fuarı - 62. Baskı",
-      "date": "27 Ağustos - 5 Eylül 2025",
-      "location": "Şam Fuar Alanı",
-      "content": "27 Ağustos - 5 Eylül 2025 tarihlerinde, One Door şirketi Şam'daki 62. Uluslararası Fuar'a katıldı. Yerel ziyaretçiler, yapay zeka ve dijital teknolojideki en son yeniliklere dikkat çekti. Ziyaretçiler, One Door'un yapay zeka ve teknoloji endüstrisinde benzersiz bir iz bırakmak için akıllı ve uyarlanabilir çözümler sunarak programlamayı nasıl yeniden tanımladığını keşfetti."
-    },
-    "telecom_meeting": {
-      "title": "Suriye Telekom şirketiyle stratejik toplantı",
-      "date": "Şam Fuarı sırasında",
-      "content": "Suriye'nin yenileme ve dijital dönüşüm yolculuğunda, One Door Genel Müdürü Mühendis Muhammed el-Muhammed, Suriye Telekom Genel Müdürü Bay Gassan Akkaş ile verimli bir toplantı gerçekleştirdi. Toplantı, iş birliğinin güçlendirilmesi ve bakanlıklar ile kurumların gelişmiş dijital çözümlerle desteklenmesi üzerine odaklandı. Taraflar, pratik adımlar üzerinde anlaştı ve bu da Suriye'de daha fazla bağlantı, verimlilik ve refaha yol açtı."
-    },
-    "saudi_companies": {
-      "title": "Suudi şirketlerle etkileşim",
-      "date": "Şam Fuarı sırasında",
-      "content": "Şam Uluslararası Fuarı'na katılımı sırasında, One Door şirketi fuar yerinde bulunan Suudi şirketleri ziyaret etti. Ziyaret, One Door'un vizyonunu sunmak, ortaklıkları genişletmek ve lider şirketlerle deneyim alışverişinde bulunmak için bir fırsat sağladı. Bu, bölgesel olarak güçlü ilişkiler kurma ve karşılıklı büyüme için iş birliğini teşvik etme taahhüdümüzü yansıtmaktadır."
-    },
-    "official_visit": {
-      "title": "Organizasyon komitesinden resmi ziyaret",
-      "date": "Şam Fuarı sırasında",
-      "content": "Şam Uluslararası Fuarı organizasyon komitesi ve fuar alanı genel müdürlüğü, One Door kafeteryasına resmi bir ziyaret gerçekleştirdi. Ziyaret, One Door şirketinin yapay zeka ve dijital teknoloji çözümlerini sergilemesine dikkat çekti ve organizatörlerin bu önde gelen ulusal etkinliğe aktif katılımımızı takdirini yansıttı."
-    },
-    "mou_innovation": {
-      "title": "Ulusal İnovasyon Kurumu ile mutabakat anlaşması",
-      "date": "Şam Fuarı sırasında",
-      "content": "Dijital Suriye inşa etme yolunda önemli bir adım olarak, One Door Yazılım Şirketi Genel Müdürü Mühendis Muhammed el-Muhammed, Ulusal İnovasyon Kurumu Genel Müdürü Mühendis Muhammed Abudan ile bir mutabakat anlaşması imzaladı. Anlaşma, dijital dönüşüm projeleri ve girişimlerinde iş birliği yapmayı, hükümet ve toplumun dijitalleşmesini desteklemeyi ve Suriye'yi parlak bir dijital geleceğe doğru sağlam bir şekilde yönlendirmeyi amaçlıyor."
-    }
+    "together": "Birlikte ilham verici dijital başarı hikayeleri inşa ediyoruz."
   }
 }

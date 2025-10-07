@@ -11,6 +11,33 @@ import servicesjpg from "../assets/projects/ddos/Services.png";
 import servicesDetailsjpg from "../assets/projects/ddos/Services Details.png";
 import onboardingjpg from "../assets/projects/ddos/Onboding@3x.png";
 import reelsp2jpg from "../assets/projects/ddos/Reels p2.png";
+import cleanomain from "../assets/projects/cleano/main.png";
+import cleano2profile from "../assets/projects/cleano/2-Profile Screen.png";
+import cleanocard from "../assets/projects/cleano/Card Screen.png";
+import cleanoframe1 from "../assets/projects/cleano/Frame 1984077913.png";
+import cleanoframe2 from "../assets/projects/cleano/Frame 1984077917 (1).png";
+import cleanoframe3 from "../assets/projects/cleano/Frame 1984077918.png";
+import cleanoframe4 from "../assets/projects/cleano/Frame 1984077920.png";
+import cleanoframe5 from "../assets/projects/cleano/Frame 1984077934.png";
+import cleanoframe6 from "../assets/projects/cleano/Frame 1984077935.png";
+import cleanohome from "../assets/projects/cleano/Home Screen.png";
+import cleanoprice from "../assets/projects/cleano/Price Screen.png";
+import cleanomap from "../assets/projects/cleano/map View.png";
+import syntramain from "../assets/projects/syntra/main.png";
+import syntra0 from "../assets/projects/syntra/0.png";
+import syntra1 from "../assets/projects/syntra/1.png";
+import syntra2 from "../assets/projects/syntra/2.png";
+import syntra3 from "../assets/projects/syntra/3.png";
+import syntra4 from "../assets/projects/syntra/4.png";
+import syntra5 from "../assets/projects/syntra/5.png";
+import syntra6 from "../assets/projects/syntra/6.png";
+import syntra7 from "../assets/projects/syntra/7.png";
+import syntra8 from "../assets/projects/syntra/8.png";
+import syntra9 from "../assets/projects/syntra/9.png";
+import syntra10 from "../assets/projects/syntra/10.png";
+import syntra12 from "../assets/projects/syntra/12.png";
+import syntra22 from "../assets/projects/syntra/22.png";
+import syntra2123 from "../assets/projects/syntra/2123.png";
 
 const ProjectsSection = () => {
   const { language } = useLanguage();
@@ -39,6 +66,63 @@ const ProjectsSection = () => {
         reelsp2jpg,
         servicesjpg,
         servicesDetailsjpg
+      ]
+    },
+    {
+      id: "2",
+      title: {
+        en: "Cleano Laundry Services",
+        ar: "تطبيق كلينو لخدمات الغسيل",
+        tr: "Cleano Çamaşır Yıkama Hizmetleri"
+      },
+      tagline: {
+        en: "Revolutionizing laundry and cleaning services",
+        ar: "إعادة تشكيل خدمات الغسيل والتنظيف",
+        tr: "Çamaşır ve temizlik hizmetlerini devrim yaratmak"
+      },
+      images: [
+        cleanomain,
+        cleanohome,
+        cleano2profile,
+        cleanocard,
+        cleanoprice,
+        cleanomap,
+        cleanoframe1,
+        cleanoframe2,
+        cleanoframe3,
+        cleanoframe4,
+        cleanoframe5,
+        cleanoframe6
+      ]
+    },
+    {
+      id: "3",
+      title: {
+        en: "Syntra Business Management System",
+        ar: "نظام سِنترا لإدارة الشركات",
+        tr: "Syntra Kurumsal Yönetim Sistemi"
+      },
+      tagline: {
+        en: "Integrated solution for business management",
+        ar: "حل متكامل لإدارة الشركات والمؤسسات",
+        tr: "Kurumsal yönetim için entegre çözüm"
+      },
+      images: [
+        syntramain,
+        syntra0,
+        syntra1,
+        syntra2,
+        syntra3,
+        syntra4,
+        syntra5,
+        syntra6,
+        syntra7,
+        syntra8,
+        syntra9,
+        syntra10,
+        syntra12,
+        syntra22,
+        syntra2123
       ]
     }
   ];
