@@ -12,7 +12,7 @@ const AchievementsSection = () => {
   });
 
   const achievements = [
-    { key: 'years', value: 7, suffix: '+', label: t('achievements.years') },
+    { key: 'years', value: 3, suffix: '+', label: t('achievements.years') },
     { key: 'clients', value: 120, suffix: '+', label: t('achievements.clients') },
     { key: 'projects', value: 50, suffix: '+', label: t('achievements.projects') },
     { key: 'downloads', value: 10, suffix: 'M+', label: t('achievements.downloads') }

@@ -90,8 +90,7 @@ const ClientsSection = () => {
         en: "Innovative digital solutions that significantly contributed to developing our business.",
         tr: "İşlerimizi geliştirmede önemli katkıda bulunan yenilikçi dijital çözümler."
       }
-    },
-  
+    }
   ];
 
   return (
@@ -107,8 +106,8 @@ const ClientsSection = () => {
           </p>
         </div>
 
-        {/* Clients Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Clients Grid - Centered */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {clients.map((client, index) => (
             <div 
               key={index}

@@ -248,7 +248,7 @@ const AboutUsSection = () => {
                       <img 
                         src={flagOfSyria} 
                         alt="Syria Flag" 
-                        className="w-8 h-6 rounded border border-border/30"
+                        className="w-12 h-8 rounded-lg border border-border/30 shadow-md"
                       />
                     </div>
                     <div>
@@ -264,7 +264,7 @@ const AboutUsSection = () => {
                       <img 
                         src={flagOfTurkey} 
                         alt="Turkey Flag" 
-                        className="w-8 h-6 rounded border border-border/30"
+                        className="w-12 h-8 rounded-lg border border-border/30 shadow-md"
                       />
                     </div>
                     <div>
@@ -369,13 +369,13 @@ const AboutUsSection = () => {
             variants={itemVariants}
             className="text-2xl font-bold text-center text-foreground mb-12"
           >
-            {t('about.mission.core_values')} <span style={{color: 'red'}}>DEBUG: {t('about.mission.core_values')}</span>
+            {t('about.mission.core_values')}
           </motion.h3>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: t('about.mission.innovation') + ' DEBUG: ' + t('about.mission.innovation'),
+                title: t('about.mission.innovation'),
                 description: t('about.mission.innovation_desc'),
                 icon: "💡"
               },
