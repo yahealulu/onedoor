@@ -26,8 +26,8 @@ const StuffSection = () => {
     {
       id: 1,
       name: {
-        en: "Ferudun jamor",
-        ar:"فرودون جامور",
+        en: "Ferudun chamor",
+        ar:"فريدون چامور",
         tr: "Ferudun Çamur"
       },
       role: {
