@@ -76,7 +76,7 @@ const StuffSection = () => {
         tr: "Yahya loulou"
       },
       role: {
-        en: "Senior Frontend Developer",
+        en: " Frontend Developer",
         ar: "مطور واجهات أمامية رئيسي",
         tr: "Kıdemli Frontend Geliştirici"
       },
@@ -106,7 +106,7 @@ const StuffSection = () => {
         tr: "Momtaz Alkedde"
       },
       role: {
-        en: "Senior Backend Engineer",
+        en: " Backend Engineer",
         ar: "مهندس خلفية رئيسي",
         tr: "Kıdemli Backend Mühendisi"
       },
@@ -121,7 +121,7 @@ const StuffSection = () => {
         tr: "Bashar Kalla"
       },
       role: {
-        en: "Senior Backend Engineer",
+        en: " Backend Engineer",
         ar: "مهندس خلفية رئيسي",
         tr: "Kıdemli Backend Mühendisi"
       },
