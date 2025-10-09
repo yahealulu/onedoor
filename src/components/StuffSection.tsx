@@ -47,7 +47,7 @@ const StuffSection = () => {
       },
       role: {
         en: "CEO of One Door Company",
-        ar: "المدير التنفيذي لشركة One Door",
+        ar: "One Doorالرئيس التنفيذي لشركة ",
         tr: "One Door Şirketi CEO'su"
       },
       image: obadaaboalshams,
