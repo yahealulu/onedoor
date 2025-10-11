@@ -48,6 +48,8 @@
     "mobile_desc": "Native, modern, and Arabic-first applications for iOS and Android",
     "web": "Web Development",
     "web_desc": "Dynamic, modern, and responsive websites",
+    "backend": "Backend Development",
+    "backend_desc": "Robust, scalable, and secure server-side solutions",
     "ui_ux": "UI/UX Design",
     "ui_ux_desc": "Attractive and user-friendly designs focused on the user",
     "ecommerce": "E-commerce",
@@ -137,6 +139,7 @@
     "phone4": "00963 995 550 310",
     "success_stories": "Successful stories begin with the right partner.",
     "technology": "Technology is closer and easier than you imagine.",
-    "together": "Together, we build inspiring digital success stories."
+    "together": "Together, we build inspiring digital success stories.",
+    "building_digital": "Building digital solutions for a better tomorrow."
   }
 }

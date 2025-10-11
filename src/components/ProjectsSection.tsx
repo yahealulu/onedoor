@@ -247,7 +247,9 @@ const ProjectsSection = () => {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
-                      {language === 'ar' ? 'تطبيق موبايل' : language === 'tr' ? 'Mobil Uygulama' : 'Mobile App'}
+                      {project.id === "3" 
+                        ? (language === 'ar' ? 'تطبيق ويب' : language === 'tr' ? 'Web Uygulaması' : 'Web App') 
+                        : (language === 'ar' ? 'تطبيق موبايل' : language === 'tr' ? 'Mobil Uygulama' : 'Mobile App')}
                     </span>
                     <div className="flex -space-x-2">
                       {project.images.slice(0, 3).map((_, idx) => (

@@ -48,6 +48,8 @@
     "mobile_desc": "iOS ve Android için yerel, modern ve Arapça öncelikli uygulamalar",
     "web": "Web Geliştirme",
     "web_desc": "Dinamik, modern ve duyarlı web siteleri",
+    "backend": "Backend Geliştirme",
+    "backend_desc": "Sağlam, ölçeklenebilir ve güvenli sunucu tarafı çözümleri",
     "ui_ux": "UI/UX Tasarımı",
     "ui_ux_desc": "Kullanıcıya odaklanan çekici ve kullanıcı dostu tasarımlar",
     "ecommerce": "E-ticaret",
@@ -131,9 +133,13 @@
     "terms_of_use": "Kullanım Şartları",
     "syria_address1": "Suriye - Şam - mazeh- 1. Mah",
     "syria_address2": "Suriye - Halep - Sheraton Otel Karşısı",
+    "phone1": "00963969697088",
+    "phone2": "00963930342875",
+    "phone3": "00963990486277",
     "phone4": "00963 995 550 310",
     "success_stories": "Başarılı hikayeler doğru ortakla başlar.",
     "technology": "Teknoloji hayal ettiğinizden daha yakın ve kolay.",
-    "together": "Birlikte ilham verici dijital başarı hikayeleri inşa ediyoruz."
+    "together": "Birlikte ilham verici dijital başarı hikayeleri inşa ediyoruz.",
+    "building_digital": "Daha iyi bir yarın için dijital çözümler inşa ediyoruz."
   }
 }

@@ -15,11 +15,13 @@ const MobileFriendlyGallery = ({ images, title }: MobileFriendlyGalleryProps) =>
 
   // Navigate to next image
   const nextImage = () => {
+    if (images.length <= 1) return;
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   // Navigate to previous image
   const prevImage = () => {
+    if (images.length <= 1) return;
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
