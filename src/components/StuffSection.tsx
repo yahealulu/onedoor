@@ -9,7 +9,6 @@ import baraasheikha from '../assets/stuff/baraasheikha.jpg';
 import momtazalkeddeh from '../assets/stuff/MomtazAlkeddeh.jpg';
 import basharkallajpg from '../assets/stuff/basharkallajpg.jpg';
 import ahmadhajali from '../assets/stuff/ahmadhajali.jpg';
-import mohammadsleiman from '../assets/stuff/MohammadSleiman.jpg';
 import mohamedzeytoun from '../assets/stuff/MohamedZeytoun.jpg';
 import moazabdulhak from '../assets/stuff/moazabdulhak.jpg';
 import kareemsharaf from '../assets/stuff/KAREEMSHARAF.png';
@@ -145,21 +144,6 @@ const StuffSection = () => {
         tr: "Fotoğrafçı"
       },
       image: ahmadhajali,
-      isFeatured: false
-    },
-    {
-      id: 9,
-      name: {
-        en: "Mohammad Sleiman",
-        ar: "محمد سليمان",
-        tr: "Mohammad Sleiman"
-      },
-      role: {
-        en: "Accountant",
-        ar: "محاسب",
-        tr: "Muhasebeci"
-      },
-      image: mohammadsleiman,
       isFeatured: false
     },
     {
