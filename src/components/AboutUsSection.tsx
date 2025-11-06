@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useLanguage } from '../contexts/LanguageContext';
+import { motion } from 'framer-motion';
 import flagOfSyria from '../assets/Flag_of_Syria_(2025-).svg.png';
 import flagOfTurkey from '../assets/Flag_of_Turkey.svg.webp';
 import newVision from '../assets/visionid.png';
@@ -12,84 +10,67 @@ import abdulrahmanportrait from '../assets/abdulrahman-portrait.jpg'
 
 const AboutUsSection = () => {
   const { t, language } = useLanguage();
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: false
-  });
 
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+  // Mobile-optimized viewport settings
+  const viewportSettings = {
+    once: false,
+    amount: 0.2, // Trigger when 20% visible (better for mobile)
+    margin: "0px 0px -100px 0px" // Start animation slightly before element enters
   };
 
+  // Smoother animations optimized for mobile
   const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
+    initial: { opacity: 0, y: 40 },
+    whileInView: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94] // Smoother easing
       }
     }
   };
 
   const scaleIn = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
+    initial: { opacity: 0, scale: 0.9 },
+    whileInView: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
 
   const slideInLeft = {
-    hidden: { opacity: 0, x: -60 },
-    visible: {
+    initial: { opacity: 0, x: -40 },
+    whileInView: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
 
   const slideInRight = {
-    hidden: { opacity: 0, x: 60 },
-    visible: {
+    initial: { opacity: 0, x: 40 },
+    whileInView: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
 
   return (
-    <motion.section 
+    <section 
       id="about-us" 
-      ref={ref}
       className="relative py-16 md:py-24 lg:py-32 bg-background overflow-hidden"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -125,41 +106,41 @@ const AboutUsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Hero Header */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="text-center mb-16 md:mb-24"
-        >
-          <motion.div variants={fadeInUp} className="mb-6">
+        <div className="text-center mb-16 md:mb-24">
+          <motion.div 
+            {...fadeInUp}
+            viewport={viewportSettings}
+            className="mb-6"
+          >
             <span className="inline-block px-6 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-semibold">
               {language === 'en' ? 'OUR STORY' : language === 'tr' ? 'HİKAYEMİZ' : 'قصتنا'}
             </span>
           </motion.div>
           <motion.h2 
-            variants={fadeInUp}
+            {...fadeInUp}
+            viewport={viewportSettings}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent"
           >
             {t('about.title')}
           </motion.h2>
           <motion.p 
-            variants={fadeInUp}
+            {...fadeInUp}
+            viewport={viewportSettings}
             className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
             {t('about.subtitle')}
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Story Section with Team */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="mb-20 md:mb-32"
-        >
+        <div className="mb-20 md:mb-32">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Content */}
-            <motion.div variants={slideInLeft} className="order-2 lg:order-1">
+            <motion.div 
+              {...slideInLeft}
+              viewport={viewportSettings}
+              className="order-2 lg:order-1"
+            >
               <div className="glass p-6 md:p-8 lg:p-10 rounded-3xl border border-border/50 backdrop-blur-xl">
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
                   {t('about.story')}
@@ -202,7 +183,11 @@ const AboutUsSection = () => {
             </motion.div>
 
             {/* Stats Grid */}
-            <motion.div variants={slideInRight} className="order-1 lg:order-2">
+            <motion.div 
+              {...slideInRight}
+              viewport={viewportSettings}
+              className="order-1 lg:order-2"
+            >
               <div className="grid grid-cols-2 gap-4 md:gap-6">
                 {[
                   { value: "150+", label: language === 'en' ? 'Projects' : language === 'tr' ? 'Projeler' : 'مشاريع', color: "primary" },
@@ -212,7 +197,8 @@ const AboutUsSection = () => {
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
-                    variants={scaleIn}
+                    {...scaleIn}
+                    viewport={viewportSettings}
                     className="glass p-6 md:p-8 rounded-2xl border border-border/40 text-center backdrop-blur-xl"
                     whileHover={{ scale: 1.05, y: -5 }}
                     transition={{ delay: index * 0.1 }}
@@ -236,17 +222,13 @@ const AboutUsSection = () => {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Mission & Vision Section */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="mb-20 md:mb-32"
-        >
+        <div className="mb-20 md:mb-32">
           <motion.h3 
-            variants={fadeInUp}
+            {...fadeInUp}
+            viewport={viewportSettings}
             className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent"
           >
             {t('about.mission.title')}
@@ -255,7 +237,8 @@ const AboutUsSection = () => {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {/* Mission Card */}
             <motion.div
-              variants={slideInLeft}
+              {...slideInLeft}
+              viewport={viewportSettings}
               className="glass p-8 md:p-10 rounded-3xl border border-primary/30 backdrop-blur-xl relative overflow-hidden group"
               whileHover={{ scale: 1.02, borderColor: "rgba(var(--primary), 0.5)" }}
             >
@@ -277,7 +260,8 @@ const AboutUsSection = () => {
 
             {/* Vision Card */}
             <motion.div
-              variants={slideInRight}
+              {...slideInRight}
+              viewport={viewportSettings}
               className="glass p-8 md:p-10 rounded-3xl border border-accent/30 backdrop-blur-xl relative overflow-hidden group"
               whileHover={{ scale: 1.02, borderColor: "rgba(var(--accent), 0.5)" }}
             >
@@ -297,17 +281,13 @@ const AboutUsSection = () => {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Vision Image Display */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="mb-20 md:mb-32"
-        >
+        <div className="mb-20 md:mb-32">
           <motion.div
-            variants={scaleIn}
+            {...scaleIn}
+            viewport={viewportSettings}
             className="relative max-w-2xl mx-auto"
           >
             <div className="relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-2xl">
@@ -320,17 +300,13 @@ const AboutUsSection = () => {
               />
             </div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Locations Section with Flags */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="mb-20 md:mb-32"
-        >
+        <div className="mb-20 md:mb-32">
           <motion.h3 
-            variants={fadeInUp}
+            {...fadeInUp}
+            viewport={viewportSettings}
             className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16"
           >
             {t('about.locations.title')}
@@ -339,7 +315,8 @@ const AboutUsSection = () => {
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {/* Syria Location */}
             <motion.div
-              variants={slideInLeft}
+              {...slideInLeft}
+              viewport={viewportSettings}
               className="glass p-6 md:p-8 rounded-3xl border border-border/50 backdrop-blur-xl group hover:border-primary/50 transition-all duration-300"
               whileHover={{ y: -8, scale: 1.02 }}
             >
@@ -374,7 +351,8 @@ const AboutUsSection = () => {
 
             {/* Turkey Location */}
             <motion.div
-              variants={slideInRight}
+              {...slideInRight}
+              viewport={viewportSettings}
               className="glass p-6 md:p-8 rounded-3xl border border-border/50 backdrop-blur-xl group hover:border-accent/50 transition-all duration-300"
               whileHover={{ y: -8, scale: 1.02 }}
             >
@@ -409,28 +387,26 @@ const AboutUsSection = () => {
           </div>
 
           <motion.p
-            variants={fadeInUp}
+            {...fadeInUp}
+            viewport={viewportSettings}
             className="text-center text-muted-foreground mt-8 max-w-2xl mx-auto text-base md:text-lg italic"
           >
             {t('about.locations.description')}
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Core Values Section */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <motion.h3 
-            variants={fadeInUp}
+            {...fadeInUp}
+            viewport={viewportSettings}
             className="text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent"
           >
             {t('about.mission.core_values')}
           </motion.h3>
           <motion.p
-            variants={fadeInUp}
+            {...fadeInUp}
+            viewport={viewportSettings}
             className="text-center text-muted-foreground mb-12 md:mb-16 text-base md:text-lg"
           >
             {language === 'en' 
@@ -466,10 +442,11 @@ const AboutUsSection = () => {
             ].map((value, index) => (
               <motion.div
                 key={index}
-                variants={scaleIn}
+                {...scaleIn}
+                viewport={viewportSettings}
                 className={`glass p-6 md:p-8 rounded-3xl border ${value.border} backdrop-blur-xl bg-gradient-to-br ${value.gradient} to-transparent text-center`}
                 whileHover={{ scale: 1.05, y: -8 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                transition={{ type: "spring", stiffness: 300, delay: index * 0.1 }}
               >
                 <motion.div
                   className="text-5xl md:text-6xl mb-6"
@@ -494,10 +471,10 @@ const AboutUsSection = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
       </div>
-    </motion.section>
+    </section>
   );
 };
 
